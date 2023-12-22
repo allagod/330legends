@@ -32,13 +32,14 @@ char* Player::getBoardCode()
 } 
 
 // 往棋盘中放棋子
-void Player::intoChess(char now_type, int now_level, int a, int b, int c, int x, int y)
+void Player::intoChess(char now_type, int now_level, int a, int b, int c, int x, int y, int coinn)
 {
 	BoardChessIfo[x][y].type = now_type;
 	BoardChessIfo[x][y].level = now_level;
 	BoardChessIfo[x][y].equipment[0] = a;
 	BoardChessIfo[x][y].equipment[1] = b;
 	BoardChessIfo[x][y].equipment[2] = c;
+	BoardChessIfo[x][y].chessCoins = coinn;
 	return;
 }
 
@@ -51,4 +52,21 @@ void Player::clearChess(int x, int y)
 	BoardChessIfo[x][y].equipment[1] = 0;
 	BoardChessIfo[x][y].equipment[2] = 0;
 	return;
+}
+
+void Player::sold(int x, int y)
+{
+	coins += BoardChessIfo[x][y].chessCoins;
+	//记得放回卡池
+	clearChess(x, y);
+}
+
+bool Player::move(int old_x, int old_y, int new_x, int new_y)
+{
+	if (BoardChessIfo[new_x][new_y].type != NONE_CHESS)
+		return false;
+	intoChess(BoardChessIfo[old_x][old_y].type, BoardChessIfo[old_x][old_y].level, BoardChessIfo[old_x][old_y].equipment[0]
+		, BoardChessIfo[old_x][old_y].equipment[1], BoardChessIfo[old_x][old_y].equipment[2], new_x, new_y, BoardChessIfo[old_x][old_y].chessCoins);
+	clearChess(old_x, old_y);
+	return true;
 }
