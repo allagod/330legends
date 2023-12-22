@@ -1,30 +1,4 @@
-#include <stdio.h>
-#include <iostream>
-#include <winsock2.h>
-#include <thread>
-#pragma comment(lib, "ws2_32.lib")
-
-using namespace std;
-#define MAX_NIKELEN 64
-#define BUFF_LEN 64
-#define MAX_NIKELEN 64
-
-class NetWork
-{
-private:
-	char nikename[MAX_NIKELEN];
-	SOCKET serverSocket;
-	char buff[BUFF_LEN];
-public:
-	NetWork();
-	~NetWork();
-	void sendNikename(char nikename[]);
-	char* refresh();
-	char* buildRoom();
-	char* intoRoom(int index);
-	void wait();
-	void startGame();
-};
+#include "NetWork"
 
 NetWork::NetWork()
 {
@@ -79,11 +53,9 @@ NetWork::~NetWork()
 
 void NetWork::sendNikename(char a[])
 {
-	cout << "a:" << a << endl;
 	strcpy_s(nikename, a);
-	char tmp[MAX_NIKELEN + 1] = "*";
+	char tmp[MAX_NIKELEN * 4] = "*";
 	strcat(tmp, a);
-	cout << "send:" << tmp << endl;
 	send(serverSocket, tmp, strlen(tmp), NULL);
 }
 
@@ -100,7 +72,7 @@ char* NetWork::refresh()
 	}
 }
 
-char* NetWork::buildRoom()
+int NetWork::buildRoom()
 {
 	send(serverSocket, "@", strlen("@"), NULL);
 	int r;
@@ -109,11 +81,14 @@ char* NetWork::buildRoom()
 	if (r > 0)
 	{
 		buff[r] = 0;//添加结束符号
-		return buff;
+		if (buff[0] == 'n')
+			return -1;
+		if (buff[0] == 'y')
+			return buff[1] - '0';
 	}
 }
 
-char* NetWork::intoRoom(int index)
+bool NetWork::intoRoom(int index)
 {
 	char tmp[5];
 	tmp[0] = '!'; tmp[1] = index + '0'; tmp[2] = 0;
@@ -124,7 +99,9 @@ char* NetWork::intoRoom(int index)
 	if (r > 0)
 	{
 		buff[r] = 0;//添加结束符号
-		return buff;
+		if (buff[0] == 'y')
+			return true;
+		return false;
 	}
 }
 
@@ -145,67 +122,4 @@ void NetWork::wait()
 void NetWork::startGame()
 {
 	send(serverSocket, "&&", strlen("&&"), NULL);
-}
-
-NetWork test;//初始化
-
-
-void update()
-{
-	while (1)
-	{
-		char buff[BUFF_LEN];
-		strcpy_s(buff, test.refresh());
-		cout << buff << endl;
-		Sleep(1000);
-	}
-}
-
-int main()
-{
-	char tmpNikename[MAX_NIKELEN];
-	char buff[BUFF_LEN];
-	cout << "请输入昵称\n";
-	cin >> tmpNikename;
-
-
-
-	test.sendNikename(tmpNikename);//发送昵称
-
-
-
-	thread newthread(update);
-	int n;
-	cin >> n;
-	if (n == 1)//如果要创建房间
-	{
-		strcpy_s(buff, test.buildRoom());//创建
-
-
-		cout << buff << endl;
-		int m;
-		cin >> m;
-
-
-
-		test.startGame();//开始游戏
-	}
-	else //如果要假如房间
-	{
-		int kk; // 加入的房间号
-		cin >> kk;
-
-
-		strcpy_s(buff, test.intoRoom(kk));//加入
-
-
-		cout << buff << endl;
-
-
-
-		test.wait();//等待开始
-
-
-	}
-	return 0;
 }

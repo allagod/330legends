@@ -1,0 +1,38 @@
+#include <iostream>
+#include <winsock2.h>
+#pragma comment(lib, "ws2_32.lib")
+
+#define MAX_NIKELEN 64
+#define BUFF_LEN 64
+#define MAX_NIKELEN 64
+
+class NetWork
+{
+private:
+	char nikename[MAX_NIKELEN]; //存储玩家昵称
+	SOCKET serverSocket; //不用管
+	char buff[BUFF_LEN];//不用管
+public:
+	NetWork();
+	~NetWork();
+	void sendNikename(char nikename[]); //输入昵称后用这个函数把昵称发给服务器
+
+	//如果在大厅，返回各个房间的信息
+	//例如"3#1guolinghao##2yg##5chl#"表示共三个房间，各个房间的房主是#...#，房间序号为#后的数字
+
+	//如果在房间内，返回房间内的信息
+	//"2#guolinghao##yg#"第一个字符表示房间内有多少人，#..#中间是房间内玩家昵称
+	char* refresh(); 
+
+	//创建房间，如果成功返回创建房间的序号，失败返回-1
+	int buildRoom();
+
+	//进入index房间，如果成功返回true，失败返回false
+	bool intoRoom(int index);
+
+	//非房主成员在进入房间后调用该函数等待开始
+	void wait();
+
+	//房主开始游戏调用该函数
+	void startGame();
+};
