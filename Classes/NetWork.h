@@ -11,7 +11,8 @@ private:
 	Network();
 	Network(const Network&) = delete;
 	Network& operator =(const Network&) = delete;
-
+	//初始化函数v
+	void init();
 
 	char nikename[MAX_NIKELEN]; //存储玩家昵称
 	SOCKET serverSocket; //不用管
@@ -19,8 +20,6 @@ private:
 	int isHost = 0; //是否是房主
 public:
 	static Network* getInstance();
-	//初始化函数v
-	void init();
 
 	//输入昵称后用这个函数把昵称发给服务器
 	void sendNikename(char nikename[]);
