@@ -1,5 +1,16 @@
 #include "Market.h"
 
+Market::Market()
+{
+	init(GlobalRes::getInstance()->getPlayers());
+}
+
+Market* Market::getInstance()
+{
+	static Market local_instance;
+	return &local_instance;
+}
+
 void Market::init(int num)
 {
 	GamePopulation = num;

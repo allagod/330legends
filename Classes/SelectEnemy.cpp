@@ -7,17 +7,17 @@ using namespace std;
 
 const int numPlayer = 4;//限定最多只有四个玩家
 
-void select_enemy::init(int n) {
+void SelectEnemy::init(int n) {
 	number = n;//对number进行初始化
 }
 
-void select_enemy::died(int index)
+void SelectEnemy::died(int index)
 {
 	death.push_back(index);
 	count = 0;//重新开始新一轮战斗，计数归0
 }
 
-string select_enemy::nextProbableEnemy() {
+string SelectEnemy::nextProbableEnemy() {
 
 	if (count % (number - 1) == 0) {
 		probableEnemy.clear();
@@ -51,7 +51,7 @@ string select_enemy::nextProbableEnemy() {
 }
 
 
-string  select_enemy::battle() {
+string  SelectEnemy::battle() {
 	//测试所用：cout << "第" << count << ":";
 	if (count % (number - 1) != 0) {//判断当前计数是否需要进行新一轮信息的产生
 		string str;
@@ -153,7 +153,7 @@ string  select_enemy::battle() {
 /*
 int main()
 {
-	select_enemy  b;
+	SelectEnemy  b;
 	for (int i = 0; i < 7; i++) {
 		b.init(4);
 		string a = b.nextProbableEnemy();

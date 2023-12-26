@@ -1,19 +1,13 @@
 #pragma once
-
-#ifndef __Select_Enemy__
-#define __Select_Enemy__
 #include<string>
 #include<vector>
+#include "GlobalRes.h"
 
 
-class select_enemy {
+class SelectEnemy
+{
 public:
-	select_enemy() {
-		number = 0;
-		count = 0;
-		death.clear();
-	}
-
+	static SelectEnemy* getInstance();
 	std::string nextProbableEnemy();//返回index号玩家可能对战敌人的编号 234 134.. 230
 
 	void init(int n);//传入当前玩家的数量
@@ -23,6 +17,14 @@ public:
 	std::string battle();//进行对战的函数
 
 private:
+	SelectEnemy() {
+		number = 0;
+		count = 0;
+		death.clear();
+		init(GlobalRes::getInstance()->getPlayers());
+	}
+	SelectEnemy(const SelectEnemy&) = delete;
+	SelectEnemy& operator =(const SelectEnemy&) = delete;
 	int number;//玩家目前的数量
 
 	std::vector<int>player;
@@ -37,4 +39,8 @@ private:
 
 };
 
-#endif // !__Select_Enemy_H__
+SelectEnemy* SelectEnemy::getInstance()
+{
+	static SelectEnemy local_instance;
+	return &local_instance;
+}
