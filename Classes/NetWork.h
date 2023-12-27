@@ -2,23 +2,26 @@
 #include <winsock2.h>
 #pragma comment(lib, "ws2_32.lib")
 
-class Network
-{
-private:
 #define MAX_NIKELEN 64
 #define BUFF_LEN 64
 #define MAX_NIKELEN 64
+
+class Network
+{
+private:
 	Network();
 	Network(const Network&) = delete;
 	Network& operator =(const Network&) = delete;
-	//初始化函数v
-	void init();
+
 
 	char nikename[MAX_NIKELEN]; //存储玩家昵称
 	SOCKET serverSocket; //不用管
 	char buff[BUFF_LEN];//不用管
 	int isHost = 0; //是否是房主
+	//初始化函数v
+	void init();
 public:
+	~Network();
 	static Network* getInstance();
 
 	//输入昵称后用这个函数把昵称发给服务器
@@ -55,6 +58,6 @@ public:
 	//返回商城给的卡
 	char* getCard(int level);
 
-	//将没买的卡退回去
+	//将卡退回去
 	void cardBack(char ch, int num);
 };

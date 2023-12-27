@@ -8,6 +8,7 @@ Network::Network()
 	init();
 }
 
+
 Network* Network::getInstance()
 {
 	static Network local_instance;
@@ -55,10 +56,6 @@ void Network::init()
 		WSACleanup();
 	}
 	printf("连接服务器成功\n");
-}
-
-Network::Network()
-{
 }
 
 Network::~Network()
