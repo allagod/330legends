@@ -1,4 +1,3 @@
-#pragma once
 #include <string>
 #include "Market.h"
 #include "SelectEnemy.h"
@@ -72,8 +71,14 @@ public:
 	//返回下回合可能对战的对手，单机时玩家永远是1号，所以只返回一号玩家可能的对手
 	string getNextProbableEnemy();
 
+	//打野怪后调用，返回三位长的字符串，如"112"表示得到了两件1号装备，一件2号装备
+	string getEquipments();
+
+	//在最开始或者打完回当前场景时调用，用于进入一个新的回合，给玩家增加4金币
+	void intoNextTurn();
+
 	// 接口函数
 	int getHealth() { return health; }
 	int getLevel() { return level; }
-	vector<int> getEquipments() { return equipments; } //返回装备的vector
+	int getCoins() { return coins; }
 };

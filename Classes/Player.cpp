@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Network.h"
 
 Player* Player::getInstance()
 {
@@ -63,7 +64,14 @@ void Player::clearChess(int x, int y)
 void Player::sold(int x, int y)
 {
 	coins += BoardChessIfo[x][y].chessCoins;
-	Market::getInstance()->back(BoardChessIfo[x][y].type, BoardChessIfo[x][y].level * pow(3, level - 1));
+	if (GlobalRes::getInstance()->IsOnline())
+	{
+		Network::getInstance()->cardBack(BoardChessIfo[x][y].type, BoardChessIfo[x][y].level * pow(3, level - 1));
+	}
+	else
+	{
+		Market::getInstance()->back(BoardChessIfo[x][y].type, BoardChessIfo[x][y].level * pow(3, level - 1));
+	}
 	clearChess(x, y);
 }
 
@@ -84,9 +92,18 @@ string Player::marketRefresh()
 {
 	if (buying.size())
 		for (auto i : buying)
-			Market::getInstance()->back(i, 1);
+		{
+			if (GlobalRes::getInstance()->IsOnline())
+				Network::getInstance()->cardBack(i, 1);
+			else
+				Market::getInstance()->back(i, 1);
+		}
 	buying.clear();
-	string cards = Market::getInstance()->GetCard(level);
+	string cards;
+	if (GlobalRes::getInstance()->IsOnline())
+		cards = Network::getInstance()->getCard(level);
+	else
+		cards = Market::getInstance()->GetCard(level);
 	for (int i = 0; i < 4; i++)
 		buying.push_back(cards[i]);
 	return cards;
@@ -197,4 +214,18 @@ string Player::getNextProbableEnemy()
 	for (int i = 0; i < GlobalRes::getInstance()->getAlivePeople() - 1; i++)
 		returnString += tmp[i];
 	return returnString;
+}
+
+string Player::getEquipments()
+{
+	string s;
+	for (int i = 1; i <= 3; i++)
+		s += (rand() % 6) + '1';
+	return s;
+}
+
+void Player::intoNextTurn()
+{
+	coins += 4;
+	GlobalRes::getInstance()->addPeriod();
 }

@@ -52,7 +52,7 @@ public:
 	//传入自己的棋盘，返回对手的棋盘
 	char* getFightBoard(const char myBoard[]);
 
-	//传入是否死亡，0代表没死，1代表死亡
+	//传入是否死亡，0代表没死，1代表死亡，每次战斗结束都要调用一下这个函数
 	void fightOver(int die);
 
 	//返回商城给的卡

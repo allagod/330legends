@@ -28,3 +28,13 @@ bool GlobalRes::died(int num)
 		return true;
 	return false;
 }
+
+void GlobalRes::setOnline()
+{
+	isOnline = 1;
+}
+
+void GlobalRes::addPeriod()
+{
+	period++;
+}

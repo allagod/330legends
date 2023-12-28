@@ -8,7 +8,6 @@ Network::Network()
 	init();
 }
 
-
 Network* Network::getInstance()
 {
 	static Network local_instance;
@@ -146,7 +145,7 @@ void Network::startGame()
 		r = recv(serverSocket, buff, BUFF_LEN - 1, NULL);
 		if (r > 0)
 		{
-			cout << "startGameBuff:" << buff << endl;
+			//cout << "startGameBuff:" << buff << endl;
 			if (strcmp(buff, "GameStart") == 0)
 				break;
 		}
@@ -155,10 +154,10 @@ void Network::startGame()
 
 char* Network::getNextEnemy()
 {
-	cout << "successingetNextEnemy\n";
+	//cout << "successingetNextEnemy\n";
 	if (isHost)
 	{
-		cout << "getNextEnemySend:" << "=" << endl;
+		//cout << "getNextEnemySend:" << "=" << endl;
 		send(serverSocket, "=", strlen("="), NULL);
 	}
 	memset(buff, 0, sizeof(buff));
@@ -192,9 +191,9 @@ char* Network::getFightBoard(const char myBoard[])
 		memset(buff, 0, sizeof(buff));
 		r = recv(serverSocket, buff, BUFF_LEN - 1, NULL);
 		if (r > 0)
-			if (buff[0] == '%')
-				break;
+			break;
 	}
+	cout << "getFightBoard中的返回buff为：" << buff << endl;
 	return buff;
 }
 
@@ -237,4 +236,12 @@ void Network::cardBack(char ch, int num)
 	memset(buff, 0, sizeof(buff));
 	buff[0] = '-'; buff[1] = ch; buff[2] = num + '0'; buff[3] = 0;
 	send(serverSocket, buff, strlen(buff), NULL);
+}
+
+void update()
+{
+	char buff[BUFF_LEN * 2];
+	strcpy_s(buff, Network::getInstance()->refresh());
+	cout << buff << endl;
+	Sleep(1000);
 }
