@@ -1,3 +1,4 @@
+#include <random>
 #include "Player.h"
 #include "Network.h"
 
@@ -72,6 +73,8 @@ void Player::sold(int x, int y)
 	{
 		Market::getInstance()->back(BoardChessIfo[x][y].type, BoardChessIfo[x][y].level * pow(3, level - 1));
 	}
+	if (x != 0)
+		numChess--;
 	clearChess(x, y);
 }
 
@@ -81,6 +84,10 @@ bool Player::move(int old_x, int old_y, int new_x, int new_y)
 		return false;
 	if (old_x == 0 && new_x != 0 && numChess == level)
 		return false;
+	if (old_x == 0 && new_x != 0)
+		numChess++;
+	if (old_x != 0 && new_x == 0)
+		numChess--;
 	intoChess(BoardChessIfo[old_x][old_y].type, BoardChessIfo[old_x][old_y].level, BoardChessIfo[old_x][old_y].equipment[0]
 		, BoardChessIfo[old_x][old_y].equipment[1], BoardChessIfo[old_x][old_y].equipment[2], new_x, new_y, BoardChessIfo[old_x][old_y].chessCoins);
 	clearChess(old_x, old_y);
@@ -193,8 +200,8 @@ bool Player::equip(int index, int x, int y)
 {
 	if (BoardChessIfo[x][y].type == NONE_CHESS || BoardChessIfo[x][y].numOfEquipments == 3)
 		return false;
-	BoardChessIfo[x][y].equipment[BoardChessIfo[x][y].numOfEquipments++] = equipments[index - 1];
-	equipments.erase(equipments.begin() + index - 1);
+	BoardChessIfo[x][y].equipment[BoardChessIfo[x][y].numOfEquipments++] = equipments[index];
+	equipments.erase(equipments.begin() + index);
 	return true;
 }
 
@@ -231,8 +238,17 @@ string Player::getNextProbableEnemy()
 string Player::getEquipments()
 {
 	string s;
+	random_device rd;
+	// 使用 Mersenne Twister 引擎
+	mt19937 gen(rd());
+	// 定义分布范围
+	uniform_int_distribution<> distribution(1, 6);
 	for (int i = 1; i <= 3; i++)
-		s += (rand() % 6) + '1';
+	{
+		int nowRandom = distribution(gen);
+		s += nowRandom + '0';
+		equipments.push_back(nowRandom);
+	}
 	return s;
 }
 
