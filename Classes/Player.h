@@ -14,7 +14,7 @@ private:
 	Player(const Player&) = delete;
 	Player& operator =(const Player&) = delete;
 
-	int health = 100, level = 1, coins = 0, experience = 0, numChess = 0;
+	int health = 100, level = 1, coins = 4, experience = 0, numChess = 0;
 	const int needExperience[10] = { 0, 2, 2, 4, 8, 10, 36, 48, 72 };
 	struct ChessIfo
 	{

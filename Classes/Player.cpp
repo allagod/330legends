@@ -113,6 +113,7 @@ string Player::marketRefresh()
 		cards = Market::getInstance()->GetCard(level);
 	for (int i = 0; i < 4; i++)
 		buying.push_back(cards[i]);
+	coins -= 2;
 	return cards;
 }
 
@@ -154,6 +155,7 @@ string Player::marketBuy(int x)
 		BoardChessIfo[0][inLocation].type = nowType;
 		BoardChessIfo[0][inLocation].level = 1;
 		BoardChessIfo[0][inLocation].chessCoins = Market::getInstance()->getPrice(nowType);
+		coins -= BoardChessIfo[0][inLocation].chessCoins;
 		return returnString;
 	}
 	bool ifToLevel3 = 0;
@@ -181,6 +183,7 @@ string Player::marketBuy(int x)
 		BoardChessIfo[0][inLocation].type = nowType;
 		BoardChessIfo[0][inLocation].level = 1;
 		BoardChessIfo[0][inLocation].chessCoins = Market::getInstance()->getPrice(nowType);
+		coins -= BoardChessIfo[0][inLocation].chessCoins;
 		return returnString;
 	}
 	returnString += '4';
@@ -192,6 +195,7 @@ string Player::marketBuy(int x)
 	BoardChessIfo[0][inLocation].type = nowType;
 	BoardChessIfo[0][inLocation].level = 1;
 	BoardChessIfo[0][inLocation].chessCoins = Market::getInstance()->getPrice(nowType);
+	coins -= BoardChessIfo[0][inLocation].chessCoins;
 	return returnString;
 }
 
@@ -209,6 +213,7 @@ bool Player::equip(int index, int x, int y)
 bool Player::experienceUp()
 {
 	experience += 4;
+	coins -= 4;
 	if (experience >= needExperience[level])
 	{
 		level++;
