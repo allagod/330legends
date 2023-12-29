@@ -41,8 +41,9 @@ void Network::init()
 	//3. 确定服务器协议地址簇	
 	SOCKADDR_IN  addr = { 0 };
 	addr.sin_family = AF_INET;
-	addr.sin_addr.S_un.S_addr = inet_addr("100.81.181.249");
+	//addr.sin_addr.S_un.S_addr = inet_addr("100.81.181.249");
 	addr.sin_port = htons(13526);
+	inet_pton(AF_INET, "100.81.181.249", &addr.sin_addr.S_un.S_addr);
 
 	//4. 连接服务器
 	if (connect(serverSocket, (sockaddr*)&addr, sizeof addr) == SOCKET_ERROR)
@@ -69,7 +70,7 @@ void Network::sendNikename(char a[])
 {
 	strcpy_s(nikename, a);
 	char tmp[MAX_NIKELEN * 4] = "*";
-	strcat(tmp, a);
+	strcat_s(tmp, a);
 	send(serverSocket, tmp, strlen(tmp), NULL);
 }
 
@@ -236,12 +237,4 @@ void Network::cardBack(char ch, int num)
 	memset(buff, 0, sizeof(buff));
 	buff[0] = '-'; buff[1] = ch; buff[2] = num + '0'; buff[3] = 0;
 	send(serverSocket, buff, strlen(buff), NULL);
-}
-
-void update()
-{
-	char buff[BUFF_LEN * 2];
-	strcpy_s(buff, Network::getInstance()->refresh());
-	cout << buff << endl;
-	Sleep(1000);
 }
