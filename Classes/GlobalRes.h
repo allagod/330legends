@@ -1,8 +1,8 @@
-
+#pragma once
 class GlobalRes
 {
 private:
-	GlobalRes();
+	GlobalRes() {}
 	GlobalRes(const GlobalRes&) = delete;
 	GlobalRes& operator =(const GlobalRes&) = delete;
 

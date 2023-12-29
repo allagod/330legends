@@ -41,6 +41,9 @@ private:
 		{8,7,6,5},		//3人
 		{12,11,10,9},	//4人
 	};
+	//不同类型的卡对应的费用
+	int fei[10] = { 1, 1, 1, 2, 2, 3, 3, 4, 4, 5 };
+
 	//不同等级对应的刷新概率
 	double rate[6][4] = {
 	{1,0,0,0} ,
@@ -61,6 +64,9 @@ private:
 	void init(int num);
 public:
 	static Market* getInstance();
+
+	//返回某种类型的卡片的价格
+	int getPrice(char ch);
 
 	//接口：用于在卡池中删除购买了的卡
 	void take(char ch, int num) { Card_Pool[INT(ch)] -= num; }

@@ -4,17 +4,22 @@
 #include<iostream>
 
 using namespace std;
-
-const int numPlayer = 4;//限定最多只有四个玩家
-
 void SelectEnemy::init(int n) {
-	number = n;//对number进行初始化
+	numPlayer = n;//对number进行初始化
+	number = n;
+}
+
+SelectEnemy* SelectEnemy::getInstance()
+{
+	static SelectEnemy local_instance;
+	return &local_instance;
 }
 
 void SelectEnemy::died(int index)
 {
 	death.push_back(index);
 	count = 0;//重新开始新一轮战斗，计数归0
+	number--;
 }
 
 string SelectEnemy::nextProbableEnemy() {
@@ -140,7 +145,6 @@ string  SelectEnemy::battle() {
 		else {
 			cout << "没找到该字符";
 		}
-
 	}
 	if (number % 2) {
 		str += information[count % (number - 1)][j];
@@ -148,63 +152,3 @@ string  SelectEnemy::battle() {
 	count++;
 	return  str;
 }
-
-//测试样例
-/*
-int main()
-{
-	SelectEnemy  b;
-	for (int i = 0; i < 7; i++) {
-		b.init(4);
-		string a = b.nextProbableEnemy();
-		string c = b.battle();
-		for (int j = 0; j < c.length(); j++) {
-			if (j == c.length() - 1 && c.length() % 2) {
-				cout << c[j];
-				break;
-			}
-			cout << c[j] - '0';
-		}
-		cout << "    ";
-		for (int j = 0; j < a.length(); j++) {
-			cout << a[j] - '0';
-		}
-		cout << endl;
-	}
-	b.died(1);
-	for (int i = 0; i < 5; i++) {
-		b.init(3);
-		string a = b.nextProbableEnemy();
-		string c = b.battle();
-		for (int j = 0; j < c.length(); j++) {
-			if (j == c.length() - 1 && c.length() % 2) {
-				cout << c[j];
-				break;
-			}
-			cout << c[j] - '0';
-		}
-		cout << "    ";
-		for (int j = 0; j < a.length(); j++) {
-			cout << a[j] - '0';
-		}
-		cout << endl;
-	}
-	b.died(3);
-	for (int i = 0; i < 1; i++) {
-		b.init(2);
-		string a = b.nextProbableEnemy();
-		string c = b.battle();
-		for (int j = 0; j < c.length(); j++) {
-			if (j == c.length() - 1 && c.length() % 2) {
-				cout << c[j];
-				break;
-			}
-			cout << c[j] - '0';
-		}
-		cout << "    ";
-		for (int j = 0; j < a.length(); j++) {
-			cout << a[j] - '0';
-		}
-		cout << endl;
-	}
-}*/

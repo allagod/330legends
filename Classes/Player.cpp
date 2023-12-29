@@ -144,6 +144,9 @@ string Player::marketBuy(int x)
 	{
 		returnString += '0';
 		returnString += inLocation + '0';
+		BoardChessIfo[0][inLocation].type = nowType;
+		BoardChessIfo[0][inLocation].level = 1;
+		BoardChessIfo[0][inLocation].chessCoins = Market::getInstance()->getPrice(nowType);
 		return returnString;
 	}
 	bool ifToLevel3 = 0;
@@ -168,6 +171,9 @@ string Player::marketBuy(int x)
 			returnString += nowx[i] + '0'; returnString += nowy[i] + '0';
 		}
 		returnString += inLocation + '0';
+		BoardChessIfo[0][inLocation].type = nowType;
+		BoardChessIfo[0][inLocation].level = 1;
+		BoardChessIfo[0][inLocation].chessCoins = Market::getInstance()->getPrice(nowType);
 		return returnString;
 	}
 	returnString += '4';
@@ -176,14 +182,20 @@ string Player::marketBuy(int x)
 		returnString += nowx[i] + '0'; returnString += nowy[i] + '0';
 	}
 	returnString += inLocation + '0';
+	BoardChessIfo[0][inLocation].type = nowType;
+	BoardChessIfo[0][inLocation].level = 1;
+	BoardChessIfo[0][inLocation].chessCoins = Market::getInstance()->getPrice(nowType);
 	return returnString;
 }
 
 //将第index个装备装到(x,y)处棋子上
 bool Player::equip(int index, int x, int y)
 {
+	if (BoardChessIfo[x][y].type == NONE_CHESS || BoardChessIfo[x][y].numOfEquipments == 3)
+		return false;
 	BoardChessIfo[x][y].equipment[BoardChessIfo[x][y].numOfEquipments++] = equipments[index - 1];
 	equipments.erase(equipments.begin() + index - 1);
+	return true;
 }
 
 //按升级按钮调用这个函数，点一次加4点经验值，经验值够了就会升级

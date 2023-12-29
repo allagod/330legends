@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include "Market.h"
 #include "SelectEnemy.h"
@@ -9,7 +10,7 @@ private:
 #define NONE_CHESS 0
 #define MAX_PREPARE 5
 	//构造函数私有化
-	Player();
+	Player() {}
 	Player(const Player&) = delete;
 	Player& operator =(const Player&) = delete;
 

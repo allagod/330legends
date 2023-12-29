@@ -26,6 +26,7 @@ private:
 	SelectEnemy(const SelectEnemy&) = delete;
 	SelectEnemy& operator =(const SelectEnemy&) = delete;
 	int number;//玩家目前的数量
+	int numPlayer;
 
 	std::vector<int>player;
 
@@ -38,9 +39,3 @@ private:
 	std::vector<std::vector<std::string>>information;//对局信息
 
 };
-
-SelectEnemy* SelectEnemy::getInstance()
-{
-	static SelectEnemy local_instance;
-	return &local_instance;
-}

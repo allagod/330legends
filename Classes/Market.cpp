@@ -11,6 +11,11 @@ Market* Market::getInstance()
 	return &local_instance;
 }
 
+int Market::getPrice(char ch)
+{
+	return fei[ch - 'a'];
+}
+
 void Market::init(int num)
 {
 	GamePopulation = num;
