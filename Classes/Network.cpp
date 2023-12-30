@@ -41,9 +41,8 @@ void Network::init()
 	//3. 确定服务器协议地址簇	
 	SOCKADDR_IN  addr = { 0 };
 	addr.sin_family = AF_INET;
-	//addr.sin_addr.S_un.S_addr = inet_addr("100.81.181.249");
+	addr.sin_addr.S_un.S_addr = inet_addr("100.81.181.249");
 	addr.sin_port = htons(13526);
-	inet_pton(AF_INET, "100.81.181.249", &addr.sin_addr.S_un.S_addr);
 
 	//4. 连接服务器
 	if (connect(serverSocket, (sockaddr*)&addr, sizeof addr) == SOCKET_ERROR)

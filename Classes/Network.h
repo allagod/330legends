@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include <WS2tcpip.h>
+#include <winsock2.h>
 #pragma comment(lib, "ws2_32.lib")
 
 #define MAX_NIKELEN 64
