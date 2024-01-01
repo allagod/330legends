@@ -26,7 +26,7 @@ private:
 	};
 	ChessIfo BoardChessIfo[6][12];
 	vector<char> buying;
-	vector<int> equipments;
+	vector<int> equipments{ 1,2,3 };
 	string intoBoardCode(ChessIfo now);
 	void intoChess(char now_type, int now_level, int a, int b, int c, int x, int y, int coinn);
 	void clearChess(int x, int y);
@@ -77,6 +77,9 @@ public:
 
 	//在最开始或者打完回当前场景时调用，用于进入一个新的回合，给玩家增加4金币
 	void intoNextTurn();
+
+	//随机得到一串敌人的编码
+	string getEnemyCode();
 
 	// 接口函数
 	int getHealth() { return health; }

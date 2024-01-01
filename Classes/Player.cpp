@@ -34,7 +34,6 @@ string Player::getBoardCode()
 	for (int i = 1; i <= 4; i++)
 		for (int j = 1; j <= 7; j++)
 			tmp += intoBoardCode(BoardChessIfo[i][j]);
-	tmp += '0';
 	return tmp;
 }
 
@@ -178,10 +177,14 @@ string Player::marketBuy(int x)
 		for (int i = 1; i <= 2; i++)
 		{
 			returnString += nowx[i] + '0'; returnString += nowy[i] + '0';
+			clearChess(nowx[i], nowy[i]);
 		}
+		for (inLocation = 1; inLocation <= MAX_PREPARE; inLocation++)
+			if (BoardChessIfo[0][inLocation].type == NONE_CHESS)
+				break;
 		returnString += inLocation + '0';
 		BoardChessIfo[0][inLocation].type = nowType;
-		BoardChessIfo[0][inLocation].level = 1;
+		BoardChessIfo[0][inLocation].level = 2;
 		BoardChessIfo[0][inLocation].chessCoins = Market::getInstance()->getPrice(nowType);
 		coins -= BoardChessIfo[0][inLocation].chessCoins;
 		return returnString;
@@ -190,10 +193,14 @@ string Player::marketBuy(int x)
 	for (int i = 1; i <= 4; i++)
 	{
 		returnString += nowx[i] + '0'; returnString += nowy[i] + '0';
+		clearChess(nowx[i], nowy[i]);
 	}
+	for (inLocation = 1; inLocation <= MAX_PREPARE; inLocation++)
+		if (BoardChessIfo[0][inLocation].type == NONE_CHESS)
+			break;
 	returnString += inLocation + '0';
 	BoardChessIfo[0][inLocation].type = nowType;
-	BoardChessIfo[0][inLocation].level = 1;
+	BoardChessIfo[0][inLocation].level = 3;
 	BoardChessIfo[0][inLocation].chessCoins = Market::getInstance()->getPrice(nowType);
 	coins -= BoardChessIfo[0][inLocation].chessCoins;
 	return returnString;
@@ -261,4 +268,78 @@ void Player::intoNextTurn()
 {
 	coins += 4;
 	GlobalRes::getInstance()->addPeriod();
+}
+
+string Player::getEnemyCode()
+{
+	string ss[5];
+	for (int i = 0; i < 5; i++)
+		ss[i] += '%';
+	for (int i = 1; i <= 4; i++)
+		for (int j = 1; j <= 7; j++)
+		{
+			if (i == 3 && j == 4)
+			{
+				ss[0] += "c3000";
+				ss[1] += "j3000";
+				ss[2] += "00000";
+				ss[3] += "00000";
+				ss[4] += "00000";
+				continue;
+			}
+			if (i == 3 && j == 3)
+			{
+				ss[0] += "00000";
+				ss[1] += "00000";
+				ss[2] += "d2000";
+				ss[3] += "f1000";
+				ss[4] += "00000";
+				continue;
+			}
+			if (i == 3 && j == 5)
+			{
+				ss[0] += "00000";
+				ss[1] += "00000";
+				ss[2] += "b1000";
+				ss[3] += "a2000";
+				ss[4] += "00000";
+				continue;
+			}
+			if (i == 1 && j == 2)
+			{
+				ss[0] += "00000";
+				ss[1] += "00000";
+				ss[2] += "00000";
+				ss[3] += "00000";
+				ss[4] += "i1000";
+				continue;
+			}
+			if (i == 1 && j == 6)
+			{
+				ss[0] += "00000";
+				ss[1] += "00000";
+				ss[2] += "00000";
+				ss[3] += "00000";
+				ss[4] += "e1000";
+				continue;
+			}
+			ss[0] += "00000";
+			ss[1] += "00000";
+			ss[2] += "00000";
+			ss[3] += "00000";
+			ss[4] += "00000";
+		}
+	std::random_device rd;
+
+	// 使用 Mersenne Twister 引擎
+	std::mt19937 gen(rd());
+
+	// 定义分布范围
+	std::uniform_int_distribution<> distribution(0, 4);
+
+	// 生成随机数
+	int random_number = distribution(gen);
+
+
+	return ss[random_number];
 }

@@ -1,7 +1,6 @@
 #include "Network.h"
 #include <thread>
 #include <cstring>
-using namespace std;
 
 Network::Network()
 {
@@ -18,26 +17,11 @@ void Network::init()
 {
 	//1. 确定网络协议版本		
 	WSADATA wsaData;
-	if (WSAStartup(MAKEWORD(2, 2), &wsaData))//载入失败
-		//输出出错信息
-		cout << "载入socket库失败\n";
-	if (LOBYTE(wsaData.wVersion) != 2 || HIBYTE(wsaData.wVersion) != 2)
-	{
-		printf("确定网络协议版本失败：%d\n",
-			GetLastError());
-	}
-	printf("确定网络协议版本成功\n");
+	WSAStartup(MAKEWORD(2, 2), &wsaData);//载入失败
 
 	//2. 创建socket		
 	serverSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-	if (serverSocket == SOCKET_ERROR)
-	{
-		printf("创建socket失败：%d\n",
-			GetLastError());
-		//清理协议版本信息
-		WSACleanup();
-	}
-	printf("创建socket成功\n");
+
 	//3. 确定服务器协议地址簇	
 	SOCKADDR_IN  addr = { 0 };
 	addr.sin_family = AF_INET;
@@ -45,16 +29,7 @@ void Network::init()
 	addr.sin_port = htons(13526);
 
 	//4. 连接服务器
-	if (connect(serverSocket, (sockaddr*)&addr, sizeof addr) == SOCKET_ERROR)
-	{
-		printf("连接服务器失败：%d\n",
-			GetLastError());
-		//关闭socket		
-		closesocket(serverSocket);
-		//清理协议版本信息
-		WSACleanup();
-	}
-	printf("连接服务器成功\n");
+	connect(serverSocket, (sockaddr*)&addr, sizeof addr);
 }
 
 Network::~Network()
@@ -154,10 +129,8 @@ void Network::startGame()
 
 char* Network::getNextEnemy()
 {
-	//cout << "successingetNextEnemy\n";
 	if (isHost)
 	{
-		//cout << "getNextEnemySend:" << "=" << endl;
 		send(serverSocket, "=", strlen("="), NULL);
 	}
 	memset(buff, 0, sizeof(buff));
@@ -193,7 +166,6 @@ char* Network::getFightBoard(const char myBoard[])
 		if (r > 0)
 			break;
 	}
-	cout << "getFightBoard中的返回buff为：" << buff << endl;
 	return buff;
 }
 
