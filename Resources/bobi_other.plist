@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>bobi_attack_down1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-1.5,7}</string>
+                <key>spriteSize</key>
+                <string>{271,276}</string>
+                <key>spriteSourceSize</key>
+                <string>{360,380}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{271,276}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>15 16 17 14 15 17 17 2 3 10 14 17 11 12 13 10 13 14 10 11 13 10 17 3 7 8 9 6 7 9 3 6 9 3 9 10 6 3 4 6 4 5 17 0 2 0 1 2 0 17 18</string>
+                <key>vertices</key>
+                <string>258 92 314 230 247 209 210 223 256 315 197 321 178 256 119 309 87 300 144 251 123 187 64 267 43 222 92 196 110 156 119 105 138 79 142 114 210 45</string>
+                <key>verticesUV</key>
+                <string>216 48 272 186 205 165 168 179 214 271 155 277 136 212 77 265 45 256 102 207 81 143 22 223 1 178 50 152 68 112 77 61 96 35 100 70 168 1</string>
+            </dict>
+            <key>bobi_attack_down2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{31,2.5}</string>
+                <key>spriteSize</key>
+                <string>{124,147}</string>
+                <key>spriteSourceSize</key>
+                <string>{360,380}</string>
+                <key>textureRect</key>
+                <string>{{515,134},{124,147}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>3 4 5 1 3 5 1 2 3 0 1 5</string>
+                <key>vertices</key>
+                <string>263 124 273 161 188 261 162 224 149 138 205 114</string>
+                <key>verticesUV</key>
+                <string>629 144 639 181 554 281 528 244 515 158 571 134</string>
+            </dict>
+            <key>bobi_death1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{12.5,2.5}</string>
+                <key>spriteSize</key>
+                <string>{163,195}</string>
+                <key>spriteSourceSize</key>
+                <string>{360,380}</string>
+                <key>textureRect</key>
+                <string>{{235,1},{163,195}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>2 5 6 2 4 5 2 6 7 2 3 4 0 2 7 0 1 2 0 7 8</string>
+                <key>vertices</key>
+                <string>164 134 187 97 217 197 274 198 215 285 156 264 123 206 139 161 111 90</string>
+                <key>verticesUV</key>
+                <string>288 45 311 8 341 108 398 109 339 196 280 175 247 117 263 72 235 1</string>
+            </dict>
+            <key>bobi_death_down1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-7.5,3}</string>
+                <key>spriteSize</key>
+                <string>{136,190}</string>
+                <key>spriteSourceSize</key>
+                <string>{325,200}</string>
+                <key>textureRect</key>
+                <string>{{381,76},{136,190}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>1 5 6 6 7 1 1 4 5 1 2 3 1 3 4 0 1 7 0 7 8</string>
+                <key>vertices</key>
+                <string>168 10 196 108 223 114 223 153 184 192 120 178 87 120 107 34 141 2</string>
+                <key>verticesUV</key>
+                <string>462 84 490 182 517 188 517 227 478 266 414 252 381 194 401 108 435 76</string>
+            </dict>
+            <key>bobi_death_down2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{2,-3}</string>
+                <key>spriteSize</key>
+                <string>{145,150}</string>
+                <key>spriteSourceSize</key>
+                <string>{325,200}</string>
+                <key>textureRect</key>
+                <string>{{447,1},{145,150}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 5 6 1 3 4 1 2 3 0 1 4 0 4 5</string>
+                <key>vertices</key>
+                <string>192 68 194 113 237 118 170 178 122 151 92 53 163 28</string>
+                <key>verticesUV</key>
+                <string>547 41 549 86 592 91 525 151 477 124 447 26 518 1</string>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>bobi_orther.png</string>
+            <key>size</key>
+            <string>{640,282}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:69377a9dd08979a38d99aa107b7a9732:841b2887f9792f690f46ee1b6806854a:f057cf44aa39443010d2debf206c9f3f$</string>
+            <key>textureFileName</key>
+            <string>bobi_orther.png</string>
+        </dict>
+    </dict>
+</plist>

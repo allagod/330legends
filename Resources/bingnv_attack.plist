@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>bingnv_attack_1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-6,1.5}</string>
+                <key>spriteSize</key>
+                <string>{128,211}</string>
+                <key>spriteSourceSize</key>
+                <string>{170,230}</string>
+                <key>textureRect</key>
+                <string>{{111,604},{128,211}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>4 5 7 5 6 7 4 7 8 3 4 8 1 3 8 1 2 3 0 1 8 0 8 9</string>
+                <key>vertices</key>
+                <string>94 26 109 84 126 94 143 142 137 181 104 219 35 218 15 179 44 104 40 8</string>
+                <key>verticesUV</key>
+                <string>190 622 205 680 222 690 239 738 233 777 200 815 131 814 111 775 140 700 136 604</string>
+            </dict>
+            <key>bingnv_attack_10.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-8,-1}</string>
+                <key>spriteSize</key>
+                <string>{120,210}</string>
+                <key>spriteSourceSize</key>
+                <string>{170,280}</string>
+                <key>textureRect</key>
+                <string>{{173,226},{120,210}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>5 6 7 2 3 4 1 2 4 1 4 5 0 1 5 0 5 7</string>
+                <key>vertices</key>
+                <string>137 70 137 189 110 228 57 246 17 180 47 94 27 88 33 36</string>
+                <key>verticesUV</key>
+                <string>293 260 293 379 266 418 213 436 173 370 203 284 183 278 189 226</string>
+            </dict>
+            <key>bingnv_attack_2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-5,-5}</string>
+                <key>spriteSize</key>
+                <string>{132,200}</string>
+                <key>spriteSourceSize</key>
+                <string>{170,230}</string>
+                <key>textureRect</key>
+                <string>{{149,814},{132,200}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>7 8 9 6 3 4 1 3 6 6 4 5 1 6 7 1 2 3 1 7 9 0 1 9</string>
+                <key>vertices</key>
+                <string>143 54 121 91 146 124 137 177 108 209 60 220 20 189 41 66 14 31 89 20</string>
+                <key>verticesUV</key>
+                <string>278 848 256 885 281 918 272 971 243 1003 195 1014 155 983 176 860 149 825 224 814</string>
+            </dict>
+            <key>bingnv_attack_3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{4.5,-1}</string>
+                <key>spriteSize</key>
+                <string>{127,218}</string>
+                <key>spriteSourceSize</key>
+                <string>{170,230}</string>
+                <key>textureRect</key>
+                <string>{{1,560},{127,218}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 8 9 6 7 8 0 6 8 5 3 4 5 6 0 5 2 3 0 1 2 5 0 2</string>
+                <key>vertices</key>
+                <string>129 106 153 172 122 214 84 225 35 216 26 177 49 78 37 64 114 7 125 7</string>
+                <key>verticesUV</key>
+                <string>104 659 128 725 97 767 59 778 10 769 1 730 24 631 12 617 89 560 100 560</string>
+            </dict>
+            <key>bingnv_attack_4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-5,-2.5}</string>
+                <key>spriteSize</key>
+                <string>{122,221}</string>
+                <key>spriteSourceSize</key>
+                <string>{170,230}</string>
+                <key>textureRect</key>
+                <string>{{120,1},{122,221}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>8 10 11 8 9 10 1 8 11 0 11 12 7 5 6 7 2 3 7 3 4 7 4 5 2 7 8 2 8 1 0 1 11</string>
+                <key>vertices</key>
+                <string>137 39 118 78 139 157 131 195 99 223 79 228 33 220 19 178 49 67 37 57 40 9 115 33 141 7</string>
+                <key>verticesUV</key>
+                <string>238 33 219 72 240 151 232 189 200 217 180 222 134 214 120 172 150 61 138 51 141 3 216 27 242 1</string>
+            </dict>
+            <key>bingnv_attack_5.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{5.5,-1.5}</string>
+                <key>spriteSize</key>
+                <string>{125,275}</string>
+                <key>spriteSourceSize</key>
+                <string>{170,280}</string>
+                <key>textureRect</key>
+                <string>{{1,277},{125,275}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>11 12 13 0 1 13 1 11 13 7 5 6 8 9 5 8 5 7 9 3 4 10 1 2 9 4 5 3 9 10 10 2 3 1 10 11 0 13 14</string>
+                <key>vertices</key>
+                <string>92 10 99 52 148 133 138 152 153 182 138 239 97 279 53 271 28 246 33 178 74 105 72 89 40 80 71 52 79 4</string>
+                <key>verticesUV</key>
+                <string>65 283 72 325 121 406 111 425 126 455 111 512 70 552 26 544 1 519 6 451 47 378 45 362 13 353 44 325 52 277</string>
+            </dict>
+            <key>bingnv_attack_6.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-3.5,1}</string>
+                <key>spriteSize</key>
+                <string>{127,278}</string>
+                <key>spriteSourceSize</key>
+                <string>{170,280}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{127,278}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 11 12 8 9 10 0 10 11 2 7 8 0 8 10 7 3 6 6 3 4 7 2 3 8 1 2 8 0 1 6 4 5</string>
+                <key>vertices</key>
+                <string>95 62 120 111 120 131 145 203 126 255 79 278 44 259 18 214 64 105 44 85 59 69 67 0 95 0</string>
+                <key>verticesUV</key>
+                <string>78 63 103 112 103 132 128 204 109 256 62 279 27 260 1 215 47 106 27 86 42 70 50 1 78 1</string>
+            </dict>
+            <key>bingnv_attack_7.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-9.5,3}</string>
+                <key>spriteSize</key>
+                <string>{125,254}</string>
+                <key>spriteSourceSize</key>
+                <string>{170,280}</string>
+                <key>textureRect</key>
+                <string>{{100,361},{125,254}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 8 9 2 3 6 5 3 4 3 5 6 2 6 7 1 2 7 0 1 7 0 7 8</string>
+                <key>vertices</key>
+                <string>84 20 112 91 113 118 138 190 97 264 41 248 13 204 48 91 30 79 66 10</string>
+                <key>verticesUV</key>
+                <string>171 371 199 442 200 469 225 541 184 615 128 599 100 555 135 442 117 430 153 361</string>
+            </dict>
+            <key>bingnv_attack_8.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-1,16}</string>
+                <key>spriteSize</key>
+                <string>{118,216}</string>
+                <key>spriteSourceSize</key>
+                <string>{170,280}</string>
+                <key>textureRect</key>
+                <string>{{39,771},{118,216}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>6 7 8 0 1 5 5 1 2 3 4 5 3 5 2 0 5 6 0 6 8</string>
+                <key>vertices</key>
+                <string>125 72 143 202 111 232 55 232 25 202 30 156 57 76 38 63 77 16</string>
+                <key>verticesUV</key>
+                <string>139 827 157 957 125 987 69 987 39 957 44 911 71 831 52 818 91 771</string>
+            </dict>
+            <key>bingnv_attack_9.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-9,1}</string>
+                <key>spriteSize</key>
+                <string>{118,208}</string>
+                <key>spriteSourceSize</key>
+                <string>{170,280}</string>
+                <key>textureRect</key>
+                <string>{{205,460},{118,208}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>5 6 7 1 4 5 4 1 2 4 2 3 0 1 5 0 5 7</string>
+                <key>vertices</key>
+                <string>125 71 135 194 109 234 46 243 17 183 47 95 27 80 52 35</string>
+                <key>verticesUV</key>
+                <string>313 496 323 619 297 659 234 668 205 608 235 520 215 505 240 460</string>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>bingnv_attack.png</string>
+            <key>size</key>
+            <string>{324,1015}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:e39f610bcc6bda1169b5f73c75c6316f:6790179e7138548e15c73d24b19ab1cd:cbf8afe2ae76e7aa5d516b4030925614$</string>
+            <key>textureFileName</key>
+            <string>bingnv_attack.png</string>
+        </dict>
+    </dict>
+</plist>

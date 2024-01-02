@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>bobi_attack1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-1,-0.5}</string>
+                <key>spriteSize</key>
+                <string>{228,131}</string>
+                <key>spriteSourceSize</key>
+                <string>{280,280}</string>
+                <key>textureRect</key>
+                <string>{{189,378},{228,131}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>10 11 12 9 10 12 9 12 13 8 9 13 6 7 8 5 6 8 0 3 5 3 4 5 0 5 8 1 2 3 0 1 3 0 8 13</string>
+                <key>vertices</key>
+                <string>230 111 253 158 240 196 200 206 157 205 145 191 93 191 91 176 127 158 109 136 25 130 48 91 97 113 139 75</string>
+                <key>verticesUV</key>
+                <string>394 414 417 461 404 499 364 509 321 508 309 494 257 494 255 479 291 461 273 439 189 433 212 394 261 416 303 378</string>
+            </dict>
+            <key>bobi_attack10.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{15.5,1}</string>
+                <key>spriteSize</key>
+                <string>{223,150}</string>
+                <key>spriteSourceSize</key>
+                <string>{280,280}</string>
+                <key>textureRect</key>
+                <string>{{313,250},{223,150}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>1 9 10 6 7 8 5 6 8 8 9 1 4 5 8 3 4 8 1 2 3 8 1 3 0 10 11 0 1 10</string>
+                <key>vertices</key>
+                <string>267 110 204 130 224 185 186 214 72 204 53 170 44 131 73 104 97 125 137 99 201 92 229 64</string>
+                <key>verticesUV</key>
+                <string>536 296 473 316 493 371 455 400 341 390 322 356 313 317 342 290 366 311 406 285 470 278 498 250</string>
+            </dict>
+            <key>bobi_attack11.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{3,12.5}</string>
+                <key>spriteSize</key>
+                <string>{156,205}</string>
+                <key>spriteSourceSize</key>
+                <string>{280,280}</string>
+                <key>textureRect</key>
+                <string>{{404,1},{156,205}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>7 8 1 5 6 3 6 7 3 3 1 2 5 3 4 7 1 3 0 1 8 0 8 9</string>
+                <key>vertices</key>
+                <string>220 74 204 98 221 168 163 199 143 230 69 208 65 173 89 124 161 70 186 25</string>
+                <key>verticesUV</key>
+                <string>559 50 543 74 560 144 502 175 482 206 408 184 404 149 428 100 500 46 525 1</string>
+            </dict>
+            <key>bobi_attack12.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-7.5,15}</string>
+                <key>spriteSize</key>
+                <string>{145,210}</string>
+                <key>spriteSourceSize</key>
+                <string>{280,280}</string>
+                <key>textureRect</key>
+                <string>{{524,31},{145,210}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>2 11 12 8 9 10 5 7 10 7 8 10 5 6 7 2 5 10 2 10 11 3 4 5 2 3 5 1 2 12 0 1 12 0 12 13</string>
+                <key>vertices</key>
+                <string>154 26 173 55 174 81 205 137 194 165 170 170 170 219 135 230 75 215 60 155 100 139 90 85 132 48 133 20</string>
+                <key>verticesUV</key>
+                <string>618 37 637 66 638 92 669 148 658 176 634 181 634 230 599 241 539 226 524 166 564 150 554 96 596 59 597 31</string>
+            </dict>
+            <key>bobi_attack2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-3.5,3}</string>
+                <key>spriteSize</key>
+                <string>{179,170}</string>
+                <key>spriteSourceSize</key>
+                <string>{280,280}</string>
+                <key>textureRect</key>
+                <string>{{580,324},{179,170}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>4 5 6 1 2 3 0 1 3 0 3 4 0 4 6</string>
+                <key>vertices</key>
+                <string>159 94 226 169 208 222 132 204 89 113 47 83 64 52</string>
+                <key>verticesUV</key>
+                <string>692 366 759 441 741 494 665 476 622 385 580 355 597 324</string>
+            </dict>
+            <key>bobi_attack3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{11.5,-2}</string>
+                <key>spriteSize</key>
+                <string>{115,218}</string>
+                <key>spriteSourceSize</key>
+                <string>{280,280}</string>
+                <key>textureRect</key>
+                <string>{{637,116},{115,218}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 12 13 9 10 11 2 9 11 0 11 12 2 11 0 5 6 7 3 4 5 2 3 5 8 2 5 2 8 9 2 0 1 8 5 7</string>
+                <key>vertices</key>
+                <string>163 87 204 96 186 136 209 159 196 194 176 198 175 245 128 251 114 173 95 140 94 103 127 91 138 35 160 33</string>
+                <key>verticesUV</key>
+                <string>706 170 747 179 729 219 752 242 739 277 719 281 718 328 671 334 657 256 638 223 637 186 670 174 681 118 703 116</string>
+            </dict>
+            <key>bobi_attack4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{11,0}</string>
+                <key>spriteSize</key>
+                <string>{138,220}</string>
+                <key>spriteSourceSize</key>
+                <string>{280,280}</string>
+                <key>textureRect</key>
+                <string>{{479,269},{138,220}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>6 7 8 0 8 9 6 8 1 3 4 5 2 3 5 2 5 6 6 1 2 0 1 8</string>
+                <key>vertices</key>
+                <string>220 51 185 102 166 156 166 206 144 250 87 216 100 135 82 78 159 57 199 30</string>
+                <key>verticesUV</key>
+                <string>617 290 582 341 563 395 563 445 541 489 484 455 497 374 479 317 556 296 596 269</string>
+            </dict>
+            <key>bobi_attack5.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{5.5,6}</string>
+                <key>spriteSize</key>
+                <string>{203,196}</string>
+                <key>spriteSourceSize</key>
+                <string>{280,280}</string>
+                <key>textureRect</key>
+                <string>{{227,184},{203,196}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>7 9 10 7 8 9 2 7 10 6 2 5 2 3 4 2 4 5 6 7 2 1 10 11 1 2 10 0 1 11</string>
+                <key>vertices</key>
+                <string>247 67 226 80 128 166 128 216 95 232 53 200 44 172 75 126 71 71 91 53 190 70 216 36</string>
+                <key>verticesUV</key>
+                <string>430 215 409 228 311 314 311 364 278 380 236 348 227 320 258 274 254 219 274 201 373 218 399 184</string>
+            </dict>
+            <key>bobi_attack6.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{7.5,-13.5}</string>
+                <key>spriteSize</key>
+                <string>{209,215}</string>
+                <key>spriteSourceSize</key>
+                <string>{280,280}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{209,215}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>9 11 12 9 10 11 1 9 12 7 2 6 8 2 7 3 4 5 2 3 5 2 5 6 8 9 2 0 12 13 1 2 9 0 1 12</string>
+                <key>vertices</key>
+                <string>252 77 167 162 118 185 154 221 146 258 115 261 67 209 43 149 63 110 97 100 111 71 159 67 180 103 229 46</string>
+                <key>verticesUV</key>
+                <string>210 32 125 117 76 140 112 176 104 213 73 216 25 164 1 104 21 65 55 55 69 26 117 22 138 58 187 1</string>
+            </dict>
+            <key>bobi_attack7.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{6.5,22}</string>
+                <key>spriteSize</key>
+                <string>{199,160}</string>
+                <key>spriteSourceSize</key>
+                <string>{280,280}</string>
+                <key>textureRect</key>
+                <string>{{40,335},{199,160}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>7 11 12 10 11 7 7 8 9 7 9 10 1 6 7 2 3 4 2 4 5 1 2 5 1 5 6 1 7 12 0 1 12</string>
+                <key>vertices</key>
+                <string>161 39 177 87 214 59 246 56 229 90 202 102 181 129 134 146 118 197 76 198 47 147 50 115 119 38</string>
+                <key>verticesUV</key>
+                <string>154 336 170 384 207 356 239 353 222 387 195 399 174 426 127 443 111 494 69 495 40 444 43 412 112 335</string>
+            </dict>
+            <key>bobi_attack8.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{15,2}</string>
+                <key>spriteSize</key>
+                <string>{206,166}</string>
+                <key>spriteSourceSize</key>
+                <string>{280,280}</string>
+                <key>textureRect</key>
+                <string>{{1,182},{206,166}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>7 8 9 4 7 9 4 5 6 4 6 7 2 9 10 2 3 4 2 4 9 1 2 10 0 1 10</string>
+                <key>vertices</key>
+                <string>258 57 258 112 183 137 207 182 148 202 148 221 52 184 68 112 95 88 156 95 197 55</string>
+                <key>verticesUV</key>
+                <string>207 184 207 239 132 264 156 309 97 329 97 348 1 311 17 239 44 215 105 222 146 182</string>
+            </dict>
+            <key>bobi_attack9.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{22.5,15.5}</string>
+                <key>spriteSize</key>
+                <string>{217,201}</string>
+                <key>spriteSourceSize</key>
+                <string>{280,280}</string>
+                <key>textureRect</key>
+                <string>{{194,1},{217,201}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>1 13 14 11 12 13 10 11 13 1 10 13 7 8 9 5 6 7 7 3 4 7 4 5 3 7 9 3 10 1 3 1 2 10 3 9 0 1 14 16 17 18 15 16 18</string>
+                <key>vertices</key>
+                <string>188 70 166 97 196 104 197 134 231 141 262 172 262 205 223 191 223 225 114 221 102 140 59 114 54 74 85 54 151 37 271 54 180 54 173 24 241 24</string>
+                <key>verticesUV</key>
+                <string>328 47 306 74 336 81 337 111 371 118 402 149 402 182 363 168 363 202 254 198 242 117 199 91 194 51 225 31 291 14 411 31 320 31 313 1 381 1</string>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>bobi_attack.png</string>
+            <key>size</key>
+            <string>{760,510}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:a209434effc2a667e150ca3fe1b0006e:75fbb85debba9b96de91d5039a07636d:7422ca7213bc9dac0907619d6fee3bf6$</string>
+            <key>textureFileName</key>
+            <string>bobi_attack.png</string>
+        </dict>
+    </dict>
+</plist>
