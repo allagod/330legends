@@ -7,28 +7,28 @@ bool HealthBar::init(float x, float y) {
     if (!DrawNode::init()) {
         return false;
     }
-    //²âÊÔÑùÀı 
+    //æµ‹è¯•æ ·ä¾‹ 
     //totalHealth = 200.0f;
 
     //barWidth = 200.0f;
 
     barHeight = 20.0f;
 
-    // ¶¨ÒåÑªÌõµÄÎ»ÖÃ
+    // å®šä¹‰è¡€æ¡çš„ä½ç½®
     Pos_x = x;
     Pos_y = y;
 
-    // »æÖÆÕû¸öÑªÌõ
+    // ç»˜åˆ¶æ•´ä¸ªè¡€æ¡
 
     hpBar = DrawNode::create();
 
-    hpBar->drawSolidRect(Vec2(Pos_x,Pos_y), Vec2(Pos_x + barWidth, Pos_y - barHeight), Color4F(0, 1, 0, 1)); // ÂÌÉ«ÑªÌõ
+    hpBar->drawSolidRect(Vec2(Pos_x,Pos_y), Vec2(Pos_x + barWidth, Pos_y - barHeight), Color4F(0, 1, 0, 1)); // ç»¿è‰²è¡€æ¡
     this->addChild(hpBar);
 
    
 
-    // »æÖÆºÚÉ«·Ö¸ôÏß
-    //numSeparators = 3; // ÈıÌõ·Ö¸îÏß,¼´ËÄ¸ñÑª
+    // ç»˜åˆ¶é»‘è‰²åˆ†éš”çº¿
+    //numSeparators = 3; // ä¸‰æ¡åˆ†å‰²çº¿,å³å››æ ¼è¡€
 
     //for (int i = 1; i <= numSeparators; ++i) {
         //DrawNode* separator = DrawNode::create();
@@ -57,10 +57,10 @@ void HealthBar::decreaseHealth(float amount) {
 
     numSeparators = barWidth / 50.0f;
 
-    hpBar->clear(); // Çå³ıÔ­À´µÄÑªÌõ
-    // ÒÆ³ıÖ®Ç°µÄºÚÏß 
+    hpBar->clear(); // æ¸…é™¤åŸæ¥çš„è¡€æ¡
+    // ç§»é™¤ä¹‹å‰çš„é»‘çº¿ 
    
-    hpBar->drawSolidRect(Vec2(Pos_x, Pos_y), Vec2(Pos_x + barWidth, Pos_y - barHeight), Color4F(0, 1, 0, 1)); // ÖØĞÂ»æÖÆÑªÌõ
+    hpBar->drawSolidRect(Vec2(Pos_x, Pos_y), Vec2(Pos_x + barWidth, Pos_y - barHeight), Color4F(0, 1, 0, 1)); // é‡æ–°ç»˜åˆ¶è¡€æ¡
 
     for (int i = 1; i <= numSeparators; ++i) {
         auto separatorLine = DrawNode::create();
