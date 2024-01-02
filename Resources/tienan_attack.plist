@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>tienan_attack1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-38,-4}</string>
+                <key>spriteSize</key>
+                <string>{239,265}</string>
+                <key>spriteSourceSize</key>
+                <string>{343,289}</string>
+                <key>textureRect</key>
+                <string>{{284,1},{239,265}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>15 16 17 0 14 15 11 12 13 9 11 13 8 9 14 0 15 17 9 10 11 6 7 8 5 6 8 4 5 8 8 14 0 4 0 2 2 3 4 9 13 14 4 8 0 0 1 2 0 17 18</string>
+                <key>vertices</key>
+                <string>65 67 64 38 106 18 138 26 154 46 195 53 234 114 210 149 158 133 154 154 253 207 185 242 174 281 118 246 83 187 30 149 24 113 44 80 14 16</string>
+                <key>verticesUV</key>
+                <string>335 52 334 23 376 3 408 11 424 31 465 38 504 99 480 134 428 118 424 139 523 192 455 227 444 266 388 231 353 172 300 134 294 98 314 65 284 1</string>
+            </dict>
+            <key>tienan_attack2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-19.5,-14.5}</string>
+                <key>spriteSize</key>
+                <string>{296,238}</string>
+                <key>spriteSourceSize</key>
+                <string>{343,289}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{296,238}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>23 25 26 23 24 25 22 26 27 22 23 26 21 22 27 1 27 28 19 3 4 17 18 19 17 4 14 3 20 21 16 14 15 14 16 17 12 13 14 5 11 12 5 10 11 7 8 9 7 9 10 6 7 10 5 6 10 4 5 12 4 12 14 4 17 19 19 20 3 2 21 27 2 3 21 1 2 27 0 1 28</string>
+                <key>vertices</key>
+                <string>283 44 270 103 222 135 168 124 136 156 204 177 233 141 300 113 261 278 261 210 247 183 218 193 158 240 87 253 72 225 47 238 30 214 49 173 11 107 100 103 171 107 189 95 175 79 130 62 4 60 41 43 136 55 200 77 233 40</string>
+                <key>verticesUV</key>
+                <string>280 5 267 64 219 96 165 85 133 117 201 138 230 102 297 74 258 239 258 171 244 144 215 154 155 201 84 214 69 186 44 199 27 175 46 134 8 68 97 64 168 68 186 56 172 40 127 23 1 21 38 4 133 16 197 38 230 1</string>
+            </dict>
+            <key>tienan_attack3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-50,3.5}</string>
+                <key>spriteSize</key>
+                <string>{163,268}</string>
+                <key>spriteSourceSize</key>
+                <string>{343,289}</string>
+                <key>textureRect</key>
+                <string>{{527,1},{163,268}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 14 15 1 12 13 12 3 11 5 7 8 10 8 9 10 11 5 10 5 8 5 6 7 1 3 12 3 4 5 11 3 5 1 2 3 14 0 1 14 1 13</string>
+                <key>vertices</key>
+                <string>159 30 161 81 190 72 177 142 203 178 168 197 168 261 126 275 83 264 40 232 40 191 56 150 58 99 81 68 89 34 130 7</string>
+                <key>verticesUV</key>
+                <string>646 24 648 75 677 66 664 136 690 172 655 191 655 255 613 269 570 258 527 226 527 185 543 144 545 93 568 62 576 28 617 1</string>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>tienan_attack.png</string>
+            <key>size</key>
+            <string>{691,270}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:10ebfd421767e10dc196c47ba5b27b54:f074968b3fb677a337db2ba4a0f8846c:0b8b87286927e085f21c6418a4625fda$</string>
+            <key>textureFileName</key>
+            <string>tienan_attack.png</string>
+        </dict>
+    </dict>
+</plist>
