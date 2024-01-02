@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>lakesi_attack_down1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-3.5,-1}</string>
+                <key>spriteSize</key>
+                <string>{127,162}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{311,239},{127,162}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 6 7 1 4 5 4 2 3 4 1 2 0 1 5 0 5 6</string>
+                <key>vertices</key>
+                <string>160 107 161 150 210 172 157 232 138 193 117 172 83 113 138 70</string>
+                <key>verticesUV</key>
+                <string>388 276 389 319 438 341 385 401 366 362 345 341 311 282 366 239</string>
+            </dict>
+            <key>lakesi_attack_down2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{6,3}</string>
+                <key>spriteSize</key>
+                <string>{108,150}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{567,173},{108,150}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 5 6 0 3 4 0 1 2 0 2 3 0 4 5</string>
+                <key>vertices</key>
+                <string>176 157 210 173 203 201 157 222 102 163 106 95 152 72</string>
+                <key>verticesUV</key>
+                <string>641 258 675 274 668 302 622 323 567 264 571 196 617 173</string>
+            </dict>
+            <key>lakesi_attack_down3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-8,6.5}</string>
+                <key>spriteSize</key>
+                <string>{160,145}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{231,93},{160,145}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>6 8 9 0 9 10 6 7 8 0 1 6 1 3 4 1 4 5 1 2 3 1 5 6 0 6 9</string>
+                <key>vertices</key>
+                <string>178 97 179 157 222 164 196 215 163 216 131 180 118 131 65 157 62 128 121 98 152 71</string>
+                <key>verticesUV</key>
+                <string>347 119 348 179 391 186 365 237 332 238 300 202 287 153 234 179 231 150 290 120 321 93</string>
+            </dict>
+            <key>lakesi_attack_down4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-5.5,-6.5}</string>
+                <key>spriteSize</key>
+                <string>{127,165}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{134,235},{127,165}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>4 5 6 1 2 3 1 3 4 0 1 4 0 4 6</string>
+                <key>vertices</key>
+                <string>143 77 208 190 178 239 118 178 111 135 81 105 112 74</string>
+                <key>verticesUV</key>
+                <string>196 238 261 351 231 400 171 339 164 296 134 266 165 235</string>
+            </dict>
+            <key>lakesi_attack_down5.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-2.5,8}</string>
+                <key>spriteSize</key>
+                <string>{127,148}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{368,199},{127,148}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>4 5 6 1 3 4 1 2 3 0 1 4 0 4 6</string>
+                <key>vertices</key>
+                <string>179 91 181 153 211 154 170 216 120 165 84 106 132 68</string>
+                <key>verticesUV</key>
+                <string>463 222 465 284 495 285 454 347 404 296 368 237 416 199</string>
+            </dict>
+            <key>lakesi_attack_down6.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-4.5,2}</string>
+                <key>spriteSize</key>
+                <string>{121,174}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{199,178},{121,174}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>1 7 8 4 5 6 1 4 6 1 3 4 1 2 3 1 6 7 0 1 8</string>
+                <key>vertices</key>
+                <string>191 94 169 120 206 136 191 164 168 180 168 235 119 179 85 113 128 61</string>
+                <key>verticesUV</key>
+                <string>305 211 283 237 320 253 305 281 282 297 282 352 233 296 199 230 242 178</string>
+            </dict>
+            <key>lakesi_attack_down7.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-7.5,8.5}</string>
+                <key>spriteSize</key>
+                <string>{105,133}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{96,312},{105,133}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>5 3 4 5 6 3 0 3 6 0 1 2 0 2 3 0 6 7</string>
+                <key>vertices</key>
+                <string>166 106 195 154 181 179 140 197 140 208 97 205 90 97 135 75</string>
+                <key>verticesUV</key>
+                <string>172 343 201 391 187 416 146 434 146 445 103 442 96 334 141 312</string>
+            </dict>
+            <key>lakesi_attack_down8.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{5,-5.5}</string>
+                <key>spriteSize</key>
+                <string>{142,129}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{420,1},{142,129}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 7 8 6 4 5 6 7 4 0 4 7 1 2 3 0 1 3 0 3 4</string>
+                <key>vertices</key>
+                <string>191 149 226 185 208 220 160 201 128 166 87 187 84 165 146 92 184 91</string>
+                <key>verticesUV</key>
+                <string>527 59 562 95 544 130 496 111 464 76 423 97 420 75 482 2 520 1</string>
+            </dict>
+            <key>lakesi_attack_down9.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-5.5,0.5}</string>
+                <key>spriteSize</key>
+                <string>{163,101}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{457,304},{163,101}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 8 9 5 6 7 5 7 8 4 5 8 0 4 8 0 1 2 0 2 3 0 3 4</string>
+                <key>vertices</key>
+                <string>191 147 226 159 212 200 166 200 151 170 121 145 72 175 63 142 146 99 207 99</string>
+                <key>verticesUV</key>
+                <string>585 352 620 364 606 405 560 405 545 375 515 350 466 380 457 347 540 304 601 304</string>
+            </dict>
+            <key>lakesi_death1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{158,197}</string>
+                <key>spriteSourceSize</key>
+                <string>{158,197}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{158,197}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 9 10 8 0 7 0 1 7 4 5 6 3 4 6 6 7 1 6 2 3 6 1 2 8 9 0</string>
+                <key>vertices</key>
+                <string>158 79 158 110 112 197 95 197 0 138 0 126 49 129 60 102 80 3 89 0 119 0</string>
+                <key>verticesUV</key>
+                <string>159 80 159 111 113 198 96 198 1 139 1 127 50 130 61 103 81 4 90 1 120 1</string>
+            </dict>
+            <key>lakesi_death2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{121,190}</string>
+                <key>spriteSourceSize</key>
+                <string>{121,190}</string>
+                <key>textureRect</key>
+                <string>{{143,1},{121,190}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>11 12 13 10 0 3 6 7 9 7 8 9 10 11 0 6 9 10 4 5 6 3 4 6 10 3 6 0 2 3 0 1 2 0 11 13</string>
+                <key>vertices</key>
+                <string>62 55 63 4 79 5 97 97 121 122 121 126 85 148 85 190 0 190 0 148 28 92 33 56 16 0 41 0</string>
+                <key>verticesUV</key>
+                <string>205 56 206 5 222 6 240 98 264 123 264 127 228 149 228 191 143 191 143 149 171 93 176 57 159 1 184 1</string>
+            </dict>
+            <key>lakesi_death3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{88,179}</string>
+                <key>spriteSourceSize</key>
+                <string>{88,179}</string>
+                <key>textureRect</key>
+                <string>{{565,1},{88,179}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>3 1 2 4 5 1 4 1 3 1 5 6 0 1 6</string>
+                <key>vertices</key>
+                <string>62 8 88 88 88 146 33 179 0 179 0 0 37 0</string>
+                <key>verticesUV</key>
+                <string>627 9 653 89 653 147 598 180 565 180 565 1 602 1</string>
+            </dict>
+            <key>lakesi_death_down1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{134,203}</string>
+                <key>spriteSourceSize</key>
+                <string>{134,203}</string>
+                <key>textureRect</key>
+                <string>{{1,182},{134,203}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>15 16 17 0 15 17 0 14 15 12 13 14 6 11 12 8 9 10 8 10 11 11 6 7 11 7 8 2 6 12 2 5 6 3 4 5 2 3 5 0 2 12 0 1 2 0 12 14</string>
+                <key>vertices</key>
+                <string>71 20 126 30 98 62 134 66 134 80 118 84 86 130 93 149 86 192 75 203 69 203 45 165 13 92 0 79 0 59 12 11 29 0 41 0</string>
+                <key>verticesUV</key>
+                <string>72 202 127 212 99 244 135 248 135 262 119 266 87 312 94 331 87 374 76 385 70 385 46 347 14 274 1 261 1 241 13 193 30 182 42 182</string>
+            </dict>
+            <key>lakesi_death_down2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{122,173}</string>
+                <key>spriteSourceSize</key>
+                <string>{122,173}</string>
+                <key>textureRect</key>
+                <string>{{318,1},{122,173}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>9 10 11 0 1 9 8 6 7 8 5 6 8 9 5 1 4 5 1 2 4 4 2 3 1 5 9 0 9 11</string>
+                <key>vertices</key>
+                <string>97 20 101 103 122 132 122 173 56 173 43 115 1 88 0 87 0 79 24 40 25 0 64 0</string>
+                <key>verticesUV</key>
+                <string>415 21 419 104 440 133 440 174 374 174 361 116 319 89 318 88 318 80 342 41 343 1 382 1</string>
+            </dict>
+            <key>lakesi_death_down3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{91,178}</string>
+                <key>spriteSourceSize</key>
+                <string>{91,178}</string>
+                <key>textureRect</key>
+                <string>{{474,124},{91,178}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>5 6 7 4 2 3 4 5 2 1 2 5 1 5 7 0 1 7</string>
+                <key>vertices</key>
+                <string>57 4 76 43 91 129 91 178 29 178 0 62 0 0 48 0</string>
+                <key>verticesUV</key>
+                <string>531 128 550 167 565 253 565 302 503 302 474 186 474 124 522 124</string>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>lakesi_other.png</string>
+            <key>size</key>
+            <string>{676,446}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:a7fb86210db87d2987c2560ad454e15f:115f03f5c0e019e439aa6edb8f6c9044:f7dadad7017f84ce836987fb875d5408$</string>
+            <key>textureFileName</key>
+            <string>lakesi_other.png</string>
+        </dict>
+    </dict>
+</plist>

@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>gewen_attack_down1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{8.5,28.5}</string>
+                <key>spriteSize</key>
+                <string>{129,199}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{627,341},{129,199}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>4 7 2 6 7 4 7 1 2 6 4 5 7 8 1 4 2 3 1 8 9 0 1 9</string>
+                <key>vertices</key>
+                <string>140 23 145 70 223 197 182 221 119 200 115 212 94 177 102 122 120 81 131 22</string>
+                <key>verticesUV</key>
+                <string>673 342 678 389 756 516 715 540 652 519 648 531 627 496 635 441 653 400 664 341</string>
+            </dict>
+            <key>gewen_attack_down10.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{15,0}</string>
+                <key>spriteSize</key>
+                <string>{132,300}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{624,1},{132,300}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 10 11 0 9 10 9 0 1 6 4 5 3 4 6 3 6 7 7 2 3 7 1 2 1 7 8 9 1 8</string>
+                <key>vertices</key>
+                <string>199 31 212 88 231 116 178 202 172 300 168 300 149 284 143 175 99 148 103 21 143 0 168 0</string>
+                <key>verticesUV</key>
+                <string>724 32 737 89 756 117 703 203 697 301 693 301 674 285 668 176 624 149 628 22 668 1 693 1</string>
+            </dict>
+            <key>gewen_attack_down2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-11,5}</string>
+                <key>spriteSize</key>
+                <string>{166,286}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{178,282},{166,286}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 11 12 3 9 10 8 4 5 9 3 4 11 0 3 5 6 7 8 5 7 4 8 9 3 10 11 0 2 3 0 1 2 0 12 13</string>
+                <key>vertices</key>
+                <string>100 62 112 17 127 17 127 115 180 166 222 235 214 268 180 288 135 275 105 232 56 176 93 113 57 26 65 2</string>
+                <key>verticesUV</key>
+                <string>222 342 234 297 249 297 249 395 302 446 344 515 336 548 302 568 257 555 227 512 178 456 215 393 179 306 187 282</string>
+            </dict>
+            <key>gewen_attack_down3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-2.5,1}</string>
+                <key>spriteSize</key>
+                <string>{219,238}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{1,294},{219,238}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>15 16 17 12 14 15 12 13 14 11 12 15 15 3 10 10 11 15 7 9 10 7 8 9 10 4 7 4 6 7 4 5 6 10 3 4 15 0 3 0 2 3 0 1 2 0 15 17</string>
+                <key>vertices</key>
+                <string>157 45 214 43 214 90 193 112 197 172 257 255 236 258 170 196 110 268 103 245 149 174 127 167 93 177 63 214 56 190 111 115 38 104 129 30</string>
+                <key>verticesUV</key>
+                <string>120 309 177 307 177 354 156 376 160 436 220 519 199 522 133 460 73 532 66 509 112 438 90 431 56 441 26 478 19 454 74 379 1 368 92 294</string>
+            </dict>
+            <key>gewen_attack_down4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{14.5,0.5}</string>
+                <key>spriteSize</key>
+                <string>{233,299}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{233,299}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 22 23 20 21 22 16 20 22 17 18 19 17 19 20 16 17 20 0 16 22 12 14 15 12 13 14 5 16 0 7 10 11 7 9 10 7 8 9 7 11 12 6 7 12 6 12 15 6 15 16 2 3 4 2 4 5 1 2 5 0 1 5 6 16 5</string>
+                <key>vertices</key>
+                <string>228 98 236 116 237 160 281 197 241 191 192 150 166 162 172 242 198 265 190 291 174 299 121 286 136 205 102 204 106 181 134 158 118 120 84 123 52 153 48 132 91 82 54 45 133 0 228 0</string>
+                <key>verticesUV</key>
+                <string>181 99 189 117 190 161 234 198 194 192 145 151 119 163 125 243 151 266 143 292 127 300 74 287 89 206 55 205 59 182 87 159 71 121 37 124 5 154 1 133 44 83 7 46 86 1 181 1</string>
+            </dict>
+            <key>gewen_attack_down5.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{5,-3.5}</string>
+                <key>spriteSize</key>
+                <string>{244,207}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{197,2},{244,207}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>16 17 18 13 15 16 13 14 15 0 16 18 12 13 16 10 11 12 9 10 12 8 9 12 0 8 12 5 7 8 5 6 7 4 5 8 8 0 2 2 3 4 8 2 4 0 1 2 0 12 16</string>
+                <key>vertices</key>
+                <string>173 70 229 71 231 130 266 127 226 165 244 222 277 255 242 248 180 196 150 210 97 256 69 257 123 184 92 172 38 215 33 193 80 154 45 106 133 50</string>
+                <key>verticesUV</key>
+                <string>337 22 393 23 395 82 430 79 390 117 408 174 441 207 406 200 344 148 314 162 261 208 233 209 287 136 256 124 202 167 197 145 244 106 209 58 297 2</string>
+            </dict>
+            <key>gewen_attack_down6.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{7,-1.5}</string>
+                <key>spriteSize</key>
+                <string>{148,295}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{404,260},{148,295}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 9 10 6 7 8 0 1 8 2 3 4 5 6 2 5 2 4 1 2 6 1 6 8 0 8 9</string>
+                <key>vertices</key>
+                <string>179 9 231 79 209 285 198 299 191 298 125 275 111 185 83 84 119 71 118 33 144 4</string>
+                <key>verticesUV</key>
+                <string>500 265 552 335 530 541 519 555 512 554 446 531 432 441 404 340 440 327 439 289 465 260</string>
+            </dict>
+            <key>gewen_attack_down7.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{4,-0.5}</string>
+                <key>spriteSize</key>
+                <string>{144,299}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{293,189},{144,299}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>15 16 17 13 14 15 12 13 15 0 1 15 3 4 12 9 10 11 8 9 11 11 12 4 5 6 7 5 7 8 11 4 5 11 5 8 2 3 12 1 2 12 1 12 15 0 15 17</string>
+                <key>vertices</key>
+                <string>185 7 223 66 226 131 171 161 165 199 172 266 212 277 216 295 147 300 119 300 119 271 140 267 138 149 82 105 95 75 117 80 115 11 149 1</string>
+                <key>verticesUV</key>
+                <string>396 195 434 254 437 319 382 349 376 387 383 454 423 465 427 483 358 488 330 488 330 459 351 455 349 337 293 293 306 263 328 268 326 199 360 189</string>
+            </dict>
+            <key>gewen_attack_down8.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{4,0}</string>
+                <key>spriteSize</key>
+                <string>{138,300}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{484,1},{138,300}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>14 15 16 12 13 14 1 14 16 11 12 14 5 11 14 8 9 10 6 11 5 10 6 7 10 7 8 6 10 11 3 4 5 14 1 3 1 2 3 5 14 3 0 1 16</string>
+                <key>vertices</key>
+                <string>188 11 195 52 223 81 200 112 192 152 165 159 158 254 171 300 137 300 112 275 134 269 131 162 85 115 90 82 102 78 102 0 160 0</string>
+                <key>verticesUV</key>
+                <string>587 12 594 53 622 82 599 113 591 153 564 160 557 255 570 301 536 301 511 276 533 270 530 163 484 116 489 83 501 79 501 1 559 1</string>
+            </dict>
+            <key>gewen_attack_down9.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{15,0}</string>
+                <key>spriteSize</key>
+                <string>{136,300}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{554,208},{136,300}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 12 13 0 11 12 8 9 10 7 8 10 11 0 1 3 4 7 6 7 4 6 4 5 10 1 3 1 2 3 10 3 7 11 1 10</string>
+                <key>vertices</key>
+                <string>192 24 204 69 233 94 182 162 173 206 167 300 148 300 136 165 100 128 97 96 118 97 103 47 122 11 168 0</string>
+                <key>verticesUV</key>
+                <string>649 232 661 277 690 302 639 370 630 414 624 508 605 508 593 373 557 336 554 304 575 305 560 255 579 219 625 208</string>
+            </dict>
+            <key>gewen_death1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-12.5,-3}</string>
+                <key>spriteSize</key>
+                <string>{133,132}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{731,1},{133,132}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 5 6 1 2 3 0 1 3 0 3 4 0 4 5</string>
+                <key>vertices</key>
+                <string>159 102 204 182 195 204 135 219 91 181 71 138 113 87</string>
+                <key>verticesUV</key>
+                <string>819 16 864 96 855 118 795 133 751 95 731 52 773 1</string>
+            </dict>
+            <key>gewen_death2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-20,2.5}</string>
+                <key>spriteSize</key>
+                <string>{106,147}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{756,428},{106,147}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>2 4 5 6 0 2 2 3 4 2 5 6 0 1 2 0 6 7</string>
+                <key>vertices</key>
+                <string>112 114 138 83 183 150 183 194 156 221 96 213 77 175 93 74</string>
+                <key>verticesUV</key>
+                <string>791 468 817 437 862 504 862 548 835 575 775 567 756 529 772 428</string>
+            </dict>
+            <key>gewen_death3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-2,-1.5}</string>
+                <key>spriteSize</key>
+                <string>{98,87}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{350,489},{98,87}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>1 3 4 1 2 3 0 1 4</string>
+                <key>vertices</key>
+                <string>197 173 157 195 99 176 117 109 181 108</string>
+                <key>verticesUV</key>
+                <string>448 554 408 576 350 557 368 490 432 489</string>
+            </dict>
+            <key>gewen_death_down1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-19.5,6.5}</string>
+                <key>spriteSize</key>
+                <string>{151,135}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{671,291},{151,135}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>5 6 7 2 3 4 0 2 5 5 2 4 0 5 7 0 1 2 0 7 8</string>
+                <key>vertices</key>
+                <string>146 85 200 119 191 160 206 210 125 211 95 187 55 117 106 88 110 76</string>
+                <key>verticesUV</key>
+                <string>762 300 816 334 807 375 822 425 741 426 711 402 671 332 722 303 726 291</string>
+            </dict>
+            <key>gewen_death_down2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-24.5,-6.5}</string>
+                <key>spriteSize</key>
+                <string>{119,163}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{717,142},{119,163}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>5 8 9 5 7 8 5 6 7 3 4 5 2 3 5 1 2 5 1 5 9 0 1 9</string>
+                <key>vertices</key>
+                <string>175 91 185 142 172 178 148 199 135 238 121 183 92 221 66 129 78 98 131 75</string>
+                <key>verticesUV</key>
+                <string>826 158 836 209 823 245 799 266 786 305 772 250 743 288 717 196 729 165 782 142</string>
+            </dict>
+            <key>gewen_death_down3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-20,2.5}</string>
+                <key>spriteSize</key>
+                <string>{74,73}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{1,192},{74,73}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 1 2 0 2 3</string>
+                <key>vertices</key>
+                <string>167 133 167 180 127 184 93 111</string>
+                <key>verticesUV</key>
+                <string>75 214 75 261 35 265 1 192</string>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>gewen_other.png</string>
+            <key>size</key>
+            <string>{865,577}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:5e83c4702d23485b187eaba24efd9e49:a47a1a29b5d5a21186b817b5a71c8a63:a3cba439daad8b410f559162425cbbef$</string>
+            <key>textureFileName</key>
+            <string>gewen_other.png</string>
+        </dict>
+    </dict>
+</plist>

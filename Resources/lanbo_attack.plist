@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>lanbo_attack1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-15.5,-0.5}</string>
+                <key>spriteSize</key>
+                <string>{215,185}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{436,856},{215,185}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>9 10 11 8 9 11 0 4 7 7 8 11 4 5 6 4 6 7 0 7 11 0 2 3 0 3 4 0 1 2 0 11 12</string>
+                <key>vertices</key>
+                <string>178 95 185 76 221 86 242 119 210 186 232 243 170 238 150 215 95 215 27 142 53 73 88 91 122 58</string>
+                <key>verticesUV</key>
+                <string>587 893 594 874 630 884 651 917 619 984 641 1041 579 1036 559 1013 504 1013 436 940 462 871 497 889 531 856</string>
+            </dict>
+            <key>lanbo_attack10.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{-9,-7}</string>
+                <key>spriteSize</key>
+                <string>{282,238}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{372,1},{282,238}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>9 10 11 9 11 5 7 8 9 0 5 11 6 7 9 9 5 6 2 3 4 0 2 4 0 4 5 0 1 2 0 11 12</string>
+                <key>vertices</key>
+                <string>208 51 247 51 282 113 279 147 234 184 158 179 112 232 11 276 0 276 62 130 48 87 102 86 125 38</string>
+                <key>verticesUV</key>
+                <string>580 14 619 14 654 76 651 110 606 147 530 142 484 195 383 239 372 239 434 93 420 50 474 49 497 1</string>
+            </dict>
+            <key>lanbo_attack11.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{2.5,13}</string>
+                <key>spriteSize</key>
+                <string>{281,182}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{290,710},{281,182}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>5 9 10 8 6 7 8 9 6 0 5 10 5 6 9 4 0 2 0 4 5 4 2 3 0 1 2 0 10 11</string>
+                <key>vertices</key>
+                <string>194 77 228 65 256 89 293 157 219 216 160 195 93 228 27 224 12 197 70 125 101 111 131 46</string>
+                <key>verticesUV</key>
+                <string>472 741 506 729 534 753 571 821 497 880 438 859 371 892 305 888 290 861 348 789 379 775 409 710</string>
+            </dict>
+            <key>lanbo_attack12.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{13,1}</string>
+                <key>spriteSize</key>
+                <string>{242,200}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{99,837},{242,200}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>9 10 11 8 9 11 0 5 11 5 6 8 6 7 8 5 8 11 0 4 5 4 0 2 4 2 3 0 1 2 0 11 12</string>
+                <key>vertices</key>
+                <string>208 86 229 82 268 126 284 176 231 219 165 233 139 249 106 242 106 213 42 137 60 97 100 101 133 49</string>
+                <key>verticesUV</key>
+                <string>265 874 286 870 325 914 341 964 288 1007 222 1021 196 1037 163 1030 163 1001 99 925 117 885 157 889 190 837</string>
+            </dict>
+            <key>lanbo_attack2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{8,15}</string>
+                <key>spriteSize</key>
+                <string>{210,254}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{1,603},{210,254}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 9 10 0 8 9 3 4 5 2 5 6 2 3 5 2 6 7 0 1 2 8 0 2 8 2 7</string>
+                <key>vertices</key>
+                <string>111 81 142 81 176 118 221 130 263 218 221 260 137 262 85 210 53 123 55 78 121 8</string>
+                <key>verticesUV</key>
+                <string>59 676 90 676 124 713 169 725 211 813 169 855 85 857 33 805 1 718 3 673 69 603</string>
+            </dict>
+            <key>lanbo_attack3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{7,-2.5}</string>
+                <key>spriteSize</key>
+                <string>{196,281}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{61,414},{196,281}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 12 13 0 11 12 8 1 3 4 6 7 4 7 8 4 5 6 1 8 9 8 3 4 1 2 3 1 9 10 11 0 1 11 1 10</string>
+                <key>vertices</key>
+                <string>154 77 174 136 245 136 221 171 228 229 255 221 255 271 217 293 143 279 83 248 59 165 98 70 168 13 184 12</string>
+                <key>verticesUV</key>
+                <string>156 479 176 538 247 538 223 573 230 631 257 623 257 673 219 695 145 681 85 650 61 567 100 472 170 415 186 414</string>
+            </dict>
+            <key>lanbo_attack4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{2,-2}</string>
+                <key>spriteSize</key>
+                <string>{190,290}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{461,390},{190,290}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>0 11 12 1 10 11 9 1 8 3 4 5 3 5 6 3 6 7 3 7 8 1 2 3 1 3 8 9 10 1 0 1 11</string>
+                <key>vertices</key>
+                <string>215 52 171 98 235 196 220 227 247 240 238 273 200 297 105 248 77 209 57 154 87 98 142 43 235 7</string>
+                <key>verticesUV</key>
+                <string>619 435 575 481 639 579 624 610 651 623 642 656 604 680 509 631 481 592 461 537 491 481 546 426 639 390</string>
+            </dict>
+            <key>lanbo_attack5.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{18.5,-3.5}</string>
+                <key>spriteSize</key>
+                <string>{263,247}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{388,192},{263,247}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>2 14 15 13 11 12 13 14 11 3 14 2 3 9 10 7 8 9 5 6 7 4 5 7 3 4 7 3 7 9 3 11 14 11 3 10 1 2 15 0 1 15</string>
+                <key>vertices</key>
+                <string>234 47 221 69 171 89 172 148 230 157 300 209 300 228 219 211 219 247 169 277 85 220 60 175 47 170 37 111 83 60 146 30</string>
+                <key>verticesUV</key>
+                <string>585 209 572 231 522 251 523 310 581 319 651 371 651 390 570 373 570 409 520 439 436 382 411 337 398 332 388 273 434 222 497 192</string>
+            </dict>
+            <key>lanbo_attack6.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{7,-6}</string>
+                <key>spriteSize</key>
+                <string>{274,244}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{172,340},{274,244}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>1 14 15 12 3 10 12 10 11 12 13 3 7 8 9 7 9 10 3 4 6 4 5 6 3 6 7 3 7 10 1 2 3 13 1 3 13 14 1 0 1 15</string>
+                <key>vertices</key>
+                <string>212 66 160 99 170 119 159 146 281 173 294 243 222 202 200 207 226 247 165 278 88 223 22 207 20 156 62 77 131 34 187 34</string>
+                <key>verticesUV</key>
+                <string>364 372 312 405 322 425 311 452 433 479 446 549 374 508 352 513 378 553 317 584 240 529 174 513 172 462 214 383 283 340 339 340</string>
+            </dict>
+            <key>lanbo_attack7.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,-13}</string>
+                <key>spriteSize</key>
+                <string>{300,236}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{300,236}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>1 13 14 10 11 12 12 13 2 9 10 12 2 6 7 2 7 8 4 5 6 3 4 6 2 3 6 2 8 9 12 2 9 1 2 13 0 1 14</string>
+                <key>vertices</key>
+                <string>243 85 178 98 162 159 259 162 300 223 300 238 240 215 213 265 179 281 116 275 14 229 0 180 39 156 90 79 182 45</string>
+                <key>verticesUV</key>
+                <string>244 41 179 54 163 115 260 118 301 179 301 194 241 171 214 221 180 237 117 231 15 185 1 136 40 112 91 35 183 1</string>
+            </dict>
+            <key>lanbo_attack8.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{3.5,-14}</string>
+                <key>spriteSize</key>
+                <string>{273,192}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{267,568},{273,192}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>9 10 11 5 11 12 8 9 11 7 8 11 0 5 12 7 5 6 5 7 11 0 4 5 1 2 3 4 0 1 1 3 4 0 12 13</string>
+                <key>vertices</key>
+                <string>208 108 263 136 290 186 274 213 216 228 159 207 106 260 46 234 21 203 17 166 75 83 84 125 110 118 157 68</string>
+                <key>verticesUV</key>
+                <string>458 608 513 636 540 686 524 713 466 728 409 707 356 760 296 734 271 703 267 666 325 583 334 625 360 618 407 568</string>
+            </dict>
+            <key>lanbo_attack9.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{4.5,-4.5}</string>
+                <key>spriteSize</key>
+                <string>{279,253}</string>
+                <key>spriteSourceSize</key>
+                <string>{300,300}</string>
+                <key>textureRect</key>
+                <string>{{107,188},{279,253}}</string>
+                <key>textureRotated</key>
+                <false/>
+                <key>triangles</key>
+                <string>9 10 11 0 5 11 9 6 7 7 8 9 9 11 5 9 5 6 0 4 5 2 3 4 0 2 4 0 1 2 0 11 12</string>
+                <key>vertices</key>
+                <string>227 54 265 54 294 113 292 151 240 177 167 171 135 210 68 259 15 281 68 155 74 83 119 71 148 28</string>
+                <key>verticesUV</key>
+                <string>319 214 357 214 386 273 384 311 332 337 259 331 227 370 160 419 107 441 160 315 166 243 211 231 240 188</string>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>lanbo_attack.png</string>
+            <key>size</key>
+            <string>{655,1042}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:6c070cc9e6d0d3014ea4a4cc4a32c659:19b0ac0e240027bd83cbf9dd2248fa96:46cc5c802d0f579057339233875d4223$</string>
+            <key>textureFileName</key>
+            <string>lanbo_attack.png</string>
+        </dict>
+    </dict>
+</plist>
