@@ -7,9 +7,9 @@ class HealthBar : public DrawNode {
 private:
     float totalHealth;
 
-    float barWidth;//Ìõ´øµÄ¿í¶È,¿ÉÒÔÈÏÎªÑªÁ¿µÄ¶àÉÙ
+    float barWidth;//æ¡å¸¦çš„å®½åº¦,å¯ä»¥è®¤ä¸ºè¡€é‡çš„å¤šå°‘
 
-    float barHeight;//Ìõ´øµÄ¸ß¶È
+    float barHeight;//æ¡å¸¦çš„é«˜åº¦
 
     int  Pos_x;
 
@@ -18,19 +18,19 @@ private:
 
     DrawNode* hpBar;
 
-    int numSeparators;//·Ö¸îÏß
+    int numSeparators;//åˆ†å‰²çº¿
 
 public:
-    //a´ú±íÑªÁ¿£¬Èç200£¬b=(a/50-1)´ú±íºÚÏß
+    //aä»£è¡¨è¡€é‡ï¼Œå¦‚200ï¼Œb=(a/50-1)ä»£è¡¨é»‘çº¿
     HealthBar(float a) {
         totalHealth = a;
         barWidth = a;
         numSeparators = (a / 50 - 1);
     }
 
-    bool init(float x, float y);//µ÷ÓÃ¸Ãº¯Êı£¬´«Èëx,y×ø±êºó¾­¹ı±ä»¯ºó¿É²úÉúÑªÌõ
+    bool init(float x, float y);//è°ƒç”¨è¯¥å‡½æ•°ï¼Œä¼ å…¥x,yåæ ‡åç»è¿‡å˜åŒ–åå¯äº§ç”Ÿè¡€æ¡
 
-    // ¼õÉÙÑªÁ¿,´«Èëamount£¬¿Û³ıÖ¸¶¨µÄÑªÁ¿
+    // å‡å°‘è¡€é‡,ä¼ å…¥amountï¼Œæ‰£é™¤æŒ‡å®šçš„è¡€é‡
     void decreaseHealth(float amount);
 
 };
