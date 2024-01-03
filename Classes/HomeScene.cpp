@@ -42,9 +42,8 @@ bool HomeScene::init()
     // 背景音乐与音效打开 默认为打开状态
     //"background_music.mp3" 是音乐文件的路径
     //audioId = AudioEngine::play2d("audio_music.mp3", true);
-    
 
-    //backgroundMusicId = AudioEngine::play2d("bgMusic.mp3", true);
+    backgroundMusicId = AudioEngine::play2d("newb.mp3", true);
 
     //添加背景
     auto background = Sprite::create("Starbg.png");
@@ -81,12 +80,12 @@ bool HomeScene::init()
 
 //点击后直接进入游戏场景
 void HomeScene::onAIBtnClicked(Ref* sender) {
-    /*Director::getInstance()->replaceScene(TransitionFade::create(1.0, AIGameScene::scene()));*/
+    //Director::getInstance()->replaceScene(TransitionFade::create(1.0, AIGameScene::scene()));
     Director::getInstance()->replaceScene(TransitionFade::create(1.0, New3DScene::createScene()));
     return;
 }
 
-// 点击按钮后显示设置界面
+//点击按钮后显示设置界面
 void HomeScene::onsettingsBtnClicked(Ref* sender) {
     //auto* settingsScene = Scene::create();
     //settingsScene->addChild(SettingsScene::create());

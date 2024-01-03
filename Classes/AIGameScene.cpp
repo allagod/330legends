@@ -14,26 +14,17 @@ Scene* AIGameScene::scene() {
     return scene;
 }
 
-//删除位置的区域有问题；x
-//没有移除原始商城卡片；x
-//合成有问题；
-//出售后可上场人数没有变化
-//装备拖动到棋子上数组越界崩溃x
-//卡牌处放置棋子x
-
 bool AIGameScene::init() {
     remainingTime = 30;
     if (!Layer::init())
         return false;
-    //Director::getInstance()->pushScene(HomeScene::scene());//将 HomeScene所在的场景推入栈中
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
 
     GlobalRes::getInstance()->setPlayers(4);
 
     //添加背景
-    auto background = Sprite::create("gameBackground.png");
+    auto background = Sprite::create("1Newbg.png");
     background->setPosition(visibleSize / 2);
     // 调整背景图片的缩放比例，使其充满窗口
     background->setScaleX(visibleSize.width / background->getContentSize().width);
@@ -47,18 +38,6 @@ bool AIGameScene::init() {
     clearLogo->setVisible(false);
     clearLogo->setTag(-1);
     this->addChild(clearLogo);
-
-    //鼠标点击坐标位置获取
-    // 启用鼠标输入
-    //auto listener = EventListenerMouse::create();
-    //listener->onMouseDown = CC_CALLBACK_1(AIGameScene::onMouseDown, this);
-    //_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-
-    //// 创建Label
-    //label = Label::createWithTTF("Mouse Position: (0, 0)", "fonts/arial.ttf", 24);
-    //label->setAnchorPoint(Vec2(0.5f, 0.5f));
-    //label->setPosition(Vec2(200, 200)); // 设置Label的初始位置
-    //this->addChild(label);
 
     // 创建CoinsLabel
     Coinslabel = Label::createWithTTF("4", "fonts/arial.ttf", 24);
@@ -178,28 +157,28 @@ bool AIGameScene::init() {
         case 'b':
             Card.push_back(Sprite::create("b.png"));
             break;
-            case 'c':
+        case 'c':
                 Card.push_back(Sprite::create("c.png"));
                 break;
-            case 'd':
+        case 'd':
                 Card.push_back(Sprite::create("d.png"));
                 break;
-            case 'e':
+        case 'e':
                 Card.push_back(Sprite::create("e.png"));
                 break;
-            case 'f':
+        case 'f':
                 Card.push_back(Sprite::create("f.png"));
                 break;
-            case 'g':
+        case 'g':
                 Card.push_back(Sprite::create("g.png"));
                 break;
-            case 'h':
+        case 'h':
                 Card.push_back(Sprite::create("h.png"));
                 break;
-            case 'i':
+        case 'i':
                 Card.push_back(Sprite::create("i.png"));
                 break;
-            case 'j':
+        case 'j':
                 Card.push_back(Sprite::create("j.png"));
                 break;
         }
@@ -218,13 +197,8 @@ bool AIGameScene::init() {
 
 Vec2 AIGameScene::Tranverse(Vec2 worldPos)
 {
-    //EventMouse* event
-    // 获取鼠标点击的窗口坐标
-    //Vec2 mousePos = Vec2(event->getCursorX(), event->getCursorY());
-    // 将窗口坐标转换为Cocos2d-x坐标系下的坐标
-    //Vec2 worldPos = convertToNodeSpace(mousePos);
 
-    //// 更新Label的文本显示鼠标点击位置的坐标
+    // 更新Label的文本显示鼠标点击位置的坐标
     Vec2 TransPos;
     if (worldPos.x >= 395 && worldPos.x <=395 + 100 * 7) {
         if (worldPos.y >= 330 && worldPos.y <= 330 + 70 * 4) {//棋盘
@@ -244,7 +218,6 @@ Vec2 AIGameScene::Tranverse(Vec2 worldPos)
         TransPos.x = 0;
         TransPos.y = 0;
     }
-    //label->setString(StringUtils::format("Mouse Position: (%.2f, %.2f)", TransPos.x, TransPos.y));
     return TransPos;
 }
 
@@ -316,10 +289,6 @@ void AIGameScene::touchEnded(Touch* touch, Event* event) {
         //联合版
         Player::getInstance()->sold(pos.y, pos.x);
         Coinslabel->setString(StringUtils::format("%d", Player::getInstance()->getCoins()));
-        //测试版
-        //coins--;
-        //Coinslabel->setString(StringUtils::format("%d", coins));
-
         this->removeChild(target);
         is_back = false;
     }
@@ -374,61 +343,6 @@ void AIGameScene::touchEnded(Touch* touch, Event* event) {
 }
 
 bool AIGameScene::c_touchBegan(Touch* touch, Event* event) {
-    //测试版
-    //auto target = static_cast<Sprite*>(event->getCurrentTarget());
-    //int tag = target->getTag();//卡牌的tag标识棋子
-    ////添加备战区棋子   
-    //if (tag >= 20&&target->getBoundingBox().containsPoint(touch->getLocation())) { //tag大于等于20，说明点击对象为卡牌
-    //    //if(currentCoin>=ChessCoin)
-    //    int No = tag - 20;
-    //    switch (No) {
-    //    case 0:
-    //        Chess.push_back(Sprite::create("chess1.png"));
-    //        break;
-    //    case 1:
-    //        Chess.push_back(Sprite::create("chess2.png"));
-    //        break;
-    //        /*case 2:
-    //            Chess.push_back(Sprite::create("chess2.png"));
-    //            break;
-    //        case 3:
-    //            Chess.push_back(Sprite::create("chess2.png"));
-    //            break;
-    //        case 4:
-    //            Chess.push_back(Sprite::create("chess2.png"));
-    //            break;
-    //        case 5:
-    //            Chess.push_back(Sprite::create("chess2.png"));
-    //            break;
-    //        case 6:
-    //            Chess.push_back(Sprite::create("chess2.png"));
-    //            break;
-    //        case 7:
-    //            Chess.push_back(Sprite::create("chess2.png"));
-    //            break;
-    //        case 8:
-    //            Chess.push_back(Sprite::create("chess2.png"));
-    //            break;
-    //        case 9:
-    //            Chess.push_back(Sprite::create("chess2.png"));
-    //            break;*/
-    //    }
-    //    Chess.back()->setPosition(Vec2(426 + 100 * preStartPos, 290));
-    //    preStartPos++;
-    //    Chess.back()->setContentSize(Size(50, 70));
-    //    Chess.back()->setTag(No);
-    //    this->addChild(Chess.back());
-
-    //    this->removeChild(target);
-
-    //    auto listener = EventListenerTouchOneByOne::create();
-    //    listener->onTouchBegan = CC_CALLBACK_2(AIGameScene::touchBegan, this);
-    //    listener->onTouchMoved = CC_CALLBACK_2(AIGameScene::touchMoved, this);
-    //    listener->onTouchEnded = CC_CALLBACK_2(AIGameScene::touchEnded, this);
-
-    //    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), Chess.back());
-
-    //    return true;
 
         //联合版
            auto target = static_cast<Sprite*>(event->getCurrentTarget());
@@ -439,22 +353,22 @@ bool AIGameScene::c_touchBegan(Touch* touch, Event* event) {
            if (tag >= 20 && target->getBoundingBox().containsPoint(touch->getLocation())) { //tag大于等于20，说明点击对象为卡牌
                int x = (target->getPosition().x - 580) / 150;
                std::string info = Player::getInstance()->marketBuy(x);// 买商城中第x张卡片,x从0开始  每个卡牌中心位置【 580+150*i(i=0,1..)  ， 80】
-              //解析上面字符串： 实现合成升级  每加入一个棋子就需要判断一次
-               /*返回一个字符串
-    "*"表示当前备战席已满，无法购买
-    "04"表示当前棋盘中同类型棋子不满3张，需要删除"0"个精灵，被购买后的棋子放在备战席的四号位
-    "201231"表示需要删除"2"个精灵，需要删除的精灵位置是"(0,1)""(2,3)"，其中(0,1)表示备战席的第一个位置（备战席的位置从一号开始，即BoardChessIfo[0][0]弃用）
-            在删除这两个精灵后，新购买的精灵放在备战席的第"1"个位置
-    "401022654"表示需要删除4个精灵，后续8位是需要删除精灵的位置，最后一位是新购买精灵放置的位置，备战席第四个
-    由于购买后生星只有删除2和4个精灵的情况，所以如果删除2个，新购买精灵变为2星，删除4个，新购买精灵变为3星
-    */
                if (info[0] == '*')
                    return false;
                if (info[0] == '0') {
                    ChessPos = info[1] - '0' - 1;
                    //return false;
                }
+               /*返回一个字符串
+   "*"表示当前备战席已满，无法购买
+   "04"表示当前棋盘中同类型棋子不满3张，需要删除"0"个精灵，被购买后的棋子放在备战席的四号位
+   "2 01 23 1"表示需要删除"2"个精灵，需要删除的精灵位置是"(0,1)""(2,3)"，其中(0,1)表示备战席的第一个位置（备战席的位置从一号开始，即BoardChessIfo[0][0]弃用）
+           在删除这两个精灵后，新购买的精灵放在备战席的第"1"个位置
+   "401022654"表示需要删除4个精灵，后续8位是需要删除精灵的位置，最后一位是新购买精灵放置的位置，备战席第四个
+   由于购买后生星只有删除2和4个精灵的情况，所以如果删除2个，新购买精灵变为2星，删除4个，新购买精灵变为3星
+   */
                else {
+
                    Vector<Node*> nodesToRemove;
                    int num = info[0] - '0'; //需要删除精灵的个数  
                    for (int i = 0, j = 1; i < num; i++) {
@@ -477,6 +391,7 @@ bool AIGameScene::c_touchBegan(Touch* touch, Event* event) {
                        this->removeChild(node);
                    }
                    ChessPos = info[info.size() - 1] - '0' - 1; //备战区每个棋子的中心位置 【426+100*i(i=0,1,2..) , 290】
+
                }
               int No = tag - 20;
               switch (No) {
@@ -531,59 +446,41 @@ bool AIGameScene::c_touchBegan(Touch* touch, Event* event) {
         _eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), Chess.back());
         return true;
 
-              //Chess.back()->setPosition(Vec2(426 + 100 * ChessPos, 290));
-              //Chess.back()->setContentSize(Size(50, 70));
-              //Chess.back()->setTag(No);
-              //this->addChild(Chess.back());
-              //touchlistenerChess.push_back(touchlistener->clone()); //不会出问题吧这里
-              //eventDispatcher->addEventListenerWithSceneGraphPriority(touchlistenerChess.back(), Chess.back());
-              //this->removeChild(target);
-              //return false; 
-
     }
     return false;// 返回 false 表示触摸事件未被消费
 }
 
-
-void AIGameScene::onMouseDown(EventMouse* event)
-{
-    //// 获取鼠标点击的窗口坐标
-    //Vec2 mousePos = Vec2(event->getCursorX(), event->getCursorY());
-
-    //// 将窗口坐标转换为Cocos2d-x坐标系下的坐标
-    //Vec2 worldPos = convertToNodeSpace(mousePos);
-
-    //// 更新Label的文本显示鼠标点击位置的坐标
-    //label->setString(StringUtils::format("Mouse Position: (%.2f, %.2f)", worldPos.x, worldPos.y));
+// 场景进入时开始计时
+ void AIGameScene::onEnter()  {
+    Layer::onEnter();
+    // 在进入场景时开始计时
+    unschedule(CC_SCHEDULE_SELECTOR(AIGameScene::updateTimer));  // 先停止计时器，避免重复启动
+    schedule(CC_SCHEDULE_SELECTOR(AIGameScene::updateTimer), 1.0f, 30, 0.0f);
 }
 
-//void AIGameScene::startCountdown(float duration)
-//{
-//    remainingTime = duration;
-//    schedule(CC_SCHEDULE_SELECTOR(AIGameScene::updateCountdown), 1.0f, duration, 0.0f);
-//}
-//
-//void AIGameScene::updateCountdown(float dt)
-//{
-//    remainingTime -= 1.0f;
-//
-//    // 更新倒计时文本
-//    countdownLabel->setString(StringUtils::format("Countdown: %.0f", remainingTime));
-//
-//    // 更新进度条
-//    float percentage = (remainingTime / total_time) * 100;
-//    // 直接更新进度条的百分比
-//    countdownTimer->setPercentage(percentage);
-//
-//    if (remainingTime <= 0){
-//        unschedule(CC_SCHEDULE_SELECTOR(AIGameScene::updateCountdown));
-//        //切换到杨光那里的场景
-//        //Director::getInstance()->popScene();
-//        Director::getInstance()->pushScene(this->scene());
-//        Director::getInstance()->replaceScene(TransitionFade::create(1.0, Chessboard::createScene()));
-//    }
-//
-//}
+// 场景切换完毕后重新设置计时器的初始值
+void AIGameScene::onEnterTransitionDidFinish()  {
+    Layer::onEnterTransitionDidFinish();
+    // 在场景切换完毕后重新设置计时器的初始值
+    remainingTime = 30;  // 设置初始倒计时时间
+    countdownTimer->setPercentage(100);
+}
+
+// 更新计时器
+void AIGameScene::updateTimer(float dt) {
+    remainingTime -= 1.0f;
+    // 更新倒计时文本
+    countdownLabel->setString(StringUtils::format("Countdown: %.0f", remainingTime));
+    // 更新进度条
+    float percentage = (remainingTime / total_time) * 100;
+    // 直接更新进度条的百分比
+    countdownTimer->setPercentage(percentage);
+    if (remainingTime <= 0) {
+        unschedule(CC_SCHEDULE_SELECTOR(AIGameScene::updateTimer));
+        Director::getInstance()->pushScene(this->scene());
+        Director::getInstance()->replaceScene(TransitionFade::create(1.0, Chessboard::createScene()));
+    }
+}
 
 //刷新商城，返回一个字符串，"abcc"表示商城刷新出的卡是abcc四种类型
 void AIGameScene::onRefBtnClicked(Ref* sender) {
@@ -614,8 +511,6 @@ void AIGameScene::onRefBtnClicked(Ref* sender) {
 
     //联合版
    cardInfo = Player::getInstance()->marketRefresh();  
-    //测试版
-    //cardInfo ="aaab";
 
     for (int i = 0; i < 4; i++) {
         switch (cardInfo[i]) {
@@ -659,9 +554,6 @@ void AIGameScene::onRefBtnClicked(Ref* sender) {
        
     }
     //改变金币数
-    //测试版
-    //coins--;
-    //Coinslabel->setString(StringUtils::format("%d", coins));
     //联合版
     Coinslabel->setString(StringUtils::format("%d", Player::getInstance()->getCoins()));
 
@@ -672,11 +564,4 @@ void AIGameScene::onUpBtnClicked(Ref* sender) {
     Player::getInstance()->experienceUp();
     Levellabel->setString(StringUtils::format("%d", Player::getInstance()->getLevel()));
     Coinslabel->setString(StringUtils::format("%d", Player::getInstance()->getCoins()));
-    
-    //测试版
-    //level++;
-    //coins--;
-    //Levellabel->setString(StringUtils::format("%d", level));
-    //Coinslabel->setString(StringUtils::format("%d", coins));
-
 }

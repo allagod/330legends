@@ -10,7 +10,7 @@ using namespace cocos2d;
 using namespace cocos2d::ui;
 
 /*
-本源文件完成设置界面的功能实现
+本源文件完成设置界面的功能实现：主要包含背景音乐的开关与音量的调节
 */
 class SettingsScene : public cocos2d::Layer {
 public:
@@ -26,7 +26,6 @@ public:
 private:
     void toggleMusic(Ref* sender);// 处理背景音乐开关的回调函数
     void onVolumeChanged(Ref* sender, Slider::EventType type);// 拖动条数值变化时的回调函数
-
 };
 
 #endif

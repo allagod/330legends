@@ -2,8 +2,8 @@
 #define __CHESSHERO_H__
 
 #include "cocos2d.h"
-#include"bar.h"
 #include "audio/include/AudioEngine.h"
+#include"bar.h"
 #include <mutex>
 #include<thread>
 #include <vector>
@@ -56,6 +56,8 @@ public:
     * 3.棋盘英雄在创建时，这个设为0
     */
     bool animation_end = 0;
+
+    float m_defence = 1;
 
     /*
      * 1.用于棋盘update（）每一帧扣血

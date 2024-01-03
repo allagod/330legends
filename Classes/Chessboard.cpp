@@ -1,7 +1,8 @@
 #include "Chessboard.h"
-#include "ChessHero.h"
 #include "AIGameScene.h"
 #include "Player.h"
+#include "EndScene.h"
+
 
 USING_NS_CC;
 
@@ -37,34 +38,7 @@ bool Chessboard::init()
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     /////////////////////////////
-    // 2.菜单部分
-
-    // 负责图片状态设定与回调函数设计
-    auto closeItem = MenuItemImage::create(
-        "CloseNormal.png",
-        "CloseSelected.png",
-        CC_CALLBACK_1(Chessboard::menuCloseCallback, this));
-
-    if (closeItem == nullptr ||
-        closeItem->getContentSize().width <= 0 ||
-        closeItem->getContentSize().height <= 0)
-    {
-        problemLoading("'CloseNormal.png' and 'CloseSelected.png'");
-    }
-    else
-    {
-        float x = origin.x + visibleSize.width - closeItem->getContentSize().width / 2;
-        float y = origin.y + closeItem->getContentSize().height / 2;
-        closeItem->setPosition(Vec2(x, y));
-    }
-
-    // 负责将菜单添加到指定位置
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Vec2::ZERO);
-    this->addChild(menu, 1);
-
-    /////////////////////////////
-    // 4.精灵部分
+    // 2.画面部分：棋盘、倒计时
     
     // 增加棋盘精灵
     auto chessboard = Sprite::create("gameBackground.png");
@@ -81,7 +55,6 @@ bool Chessboard::init()
 
     //倒计时模块
     countdownLabel = Label::createWithTTF("Countdown: 0", "fonts/arial.ttf", 24);
-    //countdownLabel->setAnchorPoint(Vec2(0, 0));
     countdownLabel->setPosition(Vec2(1165, 980));
     this->addChild(countdownLabel);
     countdownTimer = ProgressTimer::create(Sprite::create("loadingbar.png"));
@@ -98,24 +71,22 @@ bool Chessboard::init()
     startCountdown(remainingTime); // 开始倒计时 
 
     /*
-    5.精灵创建+初始化函数
+    3.精灵创建+初始化函数
     */
     ChessHero_create();
   
      /////////////////////////////
-     // 6.update
+     // 4.update
      //棋盘的更新函数
 
      this->schedule([this](float dt) {
          this->update(dt);
          }, "update_key");
  
-     this->schedule(CC_SCHEDULE_SELECTOR(Chessboard::generateValue), 1.0f, CC_REPEAT_FOREVER, 0);
+     //5.周期计时器
+     this->schedule(CC_SCHEDULE_SELECTOR(Chessboard::generateValue), 1.0f, CC_REPEAT_FOREVER, 0);//暴击血量显示
 
-     std::string health = "Health: 100\n";
-     std::string name = "Name: Player\n";
-     std::string defense = "Defense: 50\n";
-     generateInformation(health, name, defense);
+     
 
     return true;
 }
@@ -126,6 +97,7 @@ void Chessboard::startCountdown(float duration)
     remainingTime = duration;
     schedule(CC_SCHEDULE_SELECTOR(Chessboard::updateCountdown), 1.0f, duration, 0.0f);
 }
+
 
 void Chessboard::updateCountdown(float dt)
 {
@@ -142,254 +114,245 @@ void Chessboard::updateCountdown(float dt)
     if (remainingTime <= 0&& end_status==1 )
     {
         unschedule(CC_SCHEDULE_SELECTOR(Chessboard::updateCountdown));
-
         Director::getInstance()->popScene();
-
     }
 
 }
 
-void Chessboard::ChessHero_create() 
+void Chessboard::ChessHero_create()
 {
-    std::string tmp(150,0), tmp2(150,0);//tmp为我方棋盘
+    std::string tmp(150, 0), tmp2(150, 0);//tmp为我方棋盘
     tmp = Player::getInstance()->getBoardCode();
     tmp2 = Player::getInstance()->getEnemyCode();
 
-    //tmp[1] = 'c'; tmp[2] = '1';
-    //tmp[11] = 'd'; tmp[12] = '1';
-    //tmp[21] = 'e'; tmp[22] = '1';
-    /*tmp2[1] = 'j'; tmp2[2] = '2';*/
-    // 该函数返回要参与战斗的棋子的位置信息
-    
-// %开头，用五位字符表示一个位置的棋子
-// 第一位是棋子的类型，第二位是棋子的星级，第三到五位表示棋子所携带的装备
-// "%a212000000c1000"表示(1,1)位置棋子类型是a，二星，携带编号为1和2的两个装备，
-// (1,2)位置无棋子，(1,3)位置棋子类型是c，一星，无装备
+    // %开头，用五位字符表示一个位置的棋子
+    // 第一位是棋子的类型，第二位是棋子的星级，第三到五位表示棋子所携带的装备
+    // "%a212000000c1000"表示(1,1)位置棋子类型是a，二星，携带编号为1和2的两个装备，
+    // (1,2)位置无棋子，(1,3)位置棋子类型是c，一星，无装备
 
-
-
-    //前5个棋子的信息是在备战区的信息
+        //前5个棋子的信息是在备战区的信息
     int chess_type = 0, chess_grade = 0, m_x = 0, m_y = 0;
     int weapon1 = 0, weapon2 = 0, weapon3 = 0;
 
-    for (int i = 1; i <= 135; i += 5) {
+    for (int i = 1; i <= 136; i += 5) {
         chess_type = tmp[i], chess_grade = tmp[i + 1] - '1', weapon1 = tmp[i + 2] - '0', weapon2 = tmp[i + 3] - '0', weapon3 = tmp[i + 4] - '0';
         m_x = (1 + ((i - 1) / 5) / 7);
         m_y = (1 + ((i - 1) / 5) % 7);
 
-        m_x = 400 + m_x * 100;
-        m_y = 365 + m_y * 70;
-
-        switch (chess_type) {
-            case 'a':
-                {
-                    player.push_back(ChessHero::create("bingnv_attack1.png", 1, chess_grade));//#图片、序数
-                    player_num++;
-                    player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-                    player[player_num - 1]->setPosition(Vec2(m_x, m_y));   
-                    player[player_num - 1]->position_status = 1;
-
-                    //缩放
-                    player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
-                    player[player_num - 1]->setTag(1);                                        //#序数
-                    this->addChild(player[player_num - 1]);
-                    player[player_num - 1]->weapon[0] = weapon1 - '0';
-                    player[player_num - 1]->weapon[1] = weapon2 - '0';
-                    player[player_num - 1]->weapon[2] = weapon3 - '0';
-
-                    player[player_num - 1]->wear_weapon();
-                    break;
-                }
-            case 'b':
-                {
-                player.push_back(ChessHero::create("bobi_stand.png", 2, chess_grade));//#图片、序数
-                player_num++;
-                player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-                player[player_num - 1]->setPosition(Vec2(m_x, m_y));
-                player[player_num - 1]->position_status = 1;
-
-                //缩放
-                player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
-                player[player_num - 1]->setTag(2);                                       
-                this->addChild(player[player_num - 1]);
-                player[player_num - 1]->weapon[0] = weapon1 - '0';
-                player[player_num - 1]->weapon[1] = weapon2 - '0';
-                player[player_num - 1]->weapon[2] = weapon3 - '0';
-
-                player[player_num - 1]->wear_weapon();
-                break;
-                }
-            case 'c':
-                {
-                player.push_back(ChessHero::create("gewen_stand.png", 3, chess_grade));//#图片、序数
-                player_num++;
-                player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-                player[player_num - 1]->setPosition(Vec2(m_x, m_y));
-                player[player_num - 1]->position_status = 1;
-
-                //缩放
-                player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
-                player[player_num - 1]->setTag(3);                                        //#序数
-                this->addChild(player[player_num - 1]);
-                player[player_num - 1]->weapon[0] = weapon1 - '0';
-                player[player_num - 1]->weapon[1] = weapon2 - '0';
-                player[player_num - 1]->weapon[2] = weapon3 - '0';
-
-                player[player_num - 1]->wear_weapon();
-                break;
-                }
-            case 'd':
-                {
-                player.push_back(ChessHero::create("kaerma_stand.png", 4, chess_grade));//#图片、序数
-                player_num++;
-                player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-                player[player_num - 1]->setPosition(Vec2(m_x, m_y));
-                player[player_num - 1]->position_status = 1;
-
-                //缩放
-                player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
-                player[player_num - 1]->setTag(4);                                        //#序数
-                this->addChild(player[player_num - 1]);
-                player[player_num - 1]->weapon[0] = weapon1 - '0';
-                player[player_num - 1]->weapon[1] = weapon2 - '0';
-                player[player_num - 1]->weapon[2] = weapon3 - '0';
-
-                player[player_num - 1]->wear_weapon();
-                break;
-                }
-            case 'e':
-                {
-                player.push_back(ChessHero::create("lakesi_stand.png", 5, chess_grade));//#图片、序数
-                player_num++;
-                player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-                player[player_num - 1]->setPosition(Vec2(m_x, m_y));
-                player[player_num - 1]->position_status = 1;
-
-                //缩放
-                player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
-                player[player_num - 1]->setTag(5);                                        //#序数
-                this->addChild(player[player_num - 1]);
-                player[player_num - 1]->weapon[0] = weapon1 - '0';
-                player[player_num - 1]->weapon[1] = weapon2 - '0';
-                player[player_num - 1]->weapon[2] = weapon3 - '0';
-
-                player[player_num - 1]->wear_weapon();
-                break;
-                }
-            case 'f':
-                {
-                player.push_back(ChessHero::create("lanbo_stand.png", 6, chess_grade));//#图片、序数
-                player_num++;
-                player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-                player[player_num - 1]->setPosition(Vec2(m_x, m_y));
-                player[player_num - 1]->position_status = 1;
-
-                //缩放
-                player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
-                player[player_num - 1]->setTag(6);                                        //#序数
-                this->addChild(player[player_num - 1]);
-                player[player_num - 1]->weapon[0] = weapon1 - '0';
-                player[player_num - 1]->weapon[1] = weapon2 - '0';
-                player[player_num - 1]->weapon[2] = weapon3 - '0';
-
-                player[player_num - 1]->wear_weapon();
-                break;
-                }
-            case 'g':
-                {
-                player.push_back(ChessHero::create("lienata_stand.png", 7, chess_grade));//#图片、序数
-                player_num++;
-                player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-                player[player_num - 1]->setPosition(Vec2(m_x, m_y));
-                player[player_num - 1]->position_status = 1;
-
-                //缩放
-                player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
-                player[player_num - 1]->setTag(7);                                        //#序数
-                this->addChild(player[player_num - 1]);
-                player[player_num - 1]->weapon[0] = weapon1 - '0';
-                player[player_num - 1]->weapon[1] = weapon2 - '0';
-                player[player_num - 1]->weapon[2] = weapon3 - '0';
-
-                player[player_num - 1]->wear_weapon();
-                break;
-                }
-            case'h':
-                {
-                player.push_back(ChessHero::create("niutou_stand.png", 8, chess_grade));//#图片、序数
-                player_num++;
-                player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-                player[player_num - 1]->setPosition(Vec2(m_x, m_y));
-                player[player_num - 1]->position_status = 1;
-
-                //缩放
-                player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
-                player[player_num - 1]->setTag(8);                                        //#序数
-                this->addChild(player[player_num - 1]);
-                player[player_num - 1]->weapon[0] = weapon1 - '0';
-                player[player_num - 1]->weapon[1] = weapon2 - '0';
-                player[player_num - 1]->weapon[2] = weapon3 - '0';
-
-                player[player_num - 1]->wear_weapon();
-                break;
-                }
-            case 'i':
-                {
-                player.push_back(ChessHero::create("tienan_stand.png", 9, chess_grade));//#图片、序数
-                player_num++;
-                player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-                player[player_num - 1]->setPosition(Vec2(m_x, m_y));
-                player[player_num - 1]->position_status = 1;
-
-                //缩放
-                player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
-                player[player_num - 1]->setTag(9);                                     //#序数
-                this->addChild(player[player_num - 1]);
-                player[player_num - 1]->weapon[0] = weapon1 - '0';
-                player[player_num - 1]->weapon[1] = weapon2 - '0';
-                player[player_num - 1]->weapon[2] = weapon3 - '0';
-
-                player[player_num - 1]->wear_weapon();
-                break;
-                }
-            case 'j':
-                {
-                player.push_back(ChessHero::create("wuqi_stand.png", 10, chess_grade));//#图片、序数
-                player_num++;
-                player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-                player[player_num - 1]->setPosition(Vec2(m_x, m_y));
-                player[player_num - 1]->position_status = 1;
-
-                //缩放
-                player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
-                player[player_num - 1]->setTag(10);                                    //#序数
-                this->addChild(player[player_num - 1]);
-                player[player_num - 1]->weapon[0] = weapon1 - '0';
-                player[player_num - 1]->weapon[1] = weapon2 - '0';
-                player[player_num - 1]->weapon[2] = weapon3 - '0';
-
-                player[player_num - 1]->wear_weapon();
-                break;
-                }
-
-        }
-
-
-    }
-
-    //…………………………………………………………………………………等待传递第二个数组………………………………………………………………………………………
-    for (int i = 1; i <= 135; i += 5) {
-        chess_type = tmp2[i], chess_grade = tmp2[i + 1] - '1', weapon1 = tmp2[i + 2] - '0', weapon2 = tmp2[i + 3] - '0', weapon3 = tmp2[i + 4] - '0';
-        m_x = (8 - ((i - 1) / 5) / 7);
-        m_y = (8 - ((i - 1) / 5) % 7);
-            
-        m_x = 400 + m_x * 100;
-        m_y = 365 + m_y * 70;
+        int tmp = m_x;
+        m_x = 400 + m_y * 100;
+        m_y = 365 + tmp * 70;
 
         switch (chess_type) {
         case 'a':
         {
-            enemy.push_back(ChessHero::create("bingnv_attack1.png", 1, chess_grade));//#图片、序数
+            player.push_back(ChessHero::create("bingnv_attack.png", 1, chess_grade));//#图片、序数
+            player_num++;
+            player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+            player[player_num - 1]->setPosition(Vec2(m_x, m_y));
+            player[player_num - 1]->position_status = 1;
+
+            //缩放
+            player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
+            player[player_num - 1]->setTag(1);                                        //#序数
+            this->addChild(player[player_num - 1]);
+            std::string health = "maxHealth: 200\n";
+            std::string name = "Name:bingnv \n";
+            std::string defense = "Attack: 1\n";
+            generateInformation(health, name, defense);
+            break;
+        }
+        case 'b':
+        {
+            player.push_back(ChessHero::create("bobi_stand.png", 2, chess_grade));//#图片、序数
+            player_num++;
+            player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+            player[player_num - 1]->setPosition(Vec2(m_x, m_y));
+            player[player_num - 1]->position_status = 1;
+
+            //缩放
+            player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
+            player[player_num - 1]->setTag(2);
+            this->addChild(player[player_num - 1]);
+            std::string health = "maxHealth: 250\n";
+            std::string name = "Name:bobi \n";
+            std::string defense = "Attack: 1.5\n";
+            generateInformation(health, name, defense);
+            break;
+        }
+        case 'c':
+        {
+            player.push_back(ChessHero::create("gewen_stand.png", 3, chess_grade));//#图片、序数
+            player_num++;
+            player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+            player[player_num - 1]->setPosition(Vec2(m_x, m_y));
+            player[player_num - 1]->position_status = 1;
+
+            //缩放
+            player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
+            player[player_num - 1]->setTag(3);                                        //#序数
+            this->addChild(player[player_num - 1]);
+            std::string health = "maxHealth: 200\n";
+            std::string name = "Name:gewen \n";
+            std::string defense = "Attack: 1.5\n";
+            generateInformation(health, name, defense);
+            break;
+        }
+        case 'd':
+        {
+            player.push_back(ChessHero::create("kaerma_stand.png", 4, chess_grade));//#图片、序数
+            player_num++;
+            player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+            player[player_num - 1]->setPosition(Vec2(m_x, m_y));
+            player[player_num - 1]->position_status = 1;
+
+            //缩放
+            player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
+            player[player_num - 1]->setTag(4);                                        //#序数
+            this->addChild(player[player_num - 1]);
+            std::string health = "maxHealth: 200\n";
+            std::string name = "Name:kaerma \n";
+            std::string defense = "Attack: 1.5\n";
+            generateInformation(health, name, defense);
+            break;
+        }
+        case 'e':
+        {
+            player.push_back(ChessHero::create("lakesi_stand.png", 5, chess_grade));//#图片、序数
+            player_num++;
+            player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+            player[player_num - 1]->setPosition(Vec2(m_x, m_y));
+            player[player_num - 1]->position_status = 1;
+
+            //缩放
+            player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
+            player[player_num - 1]->setTag(5);                                        //#序数
+            this->addChild(player[player_num - 1]);
+            std::string health = "maxHealth: 200\n";
+            std::string name = "Name:lakesi \n";
+            std::string defense = "Attack: 1.5\n";
+            generateInformation(health, name, defense);
+            break;
+        }
+        case 'f':
+        {
+            player.push_back(ChessHero::create("lanbo_stand.png", 6, chess_grade));//#图片、序数
+            player_num++;
+            player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+            player[player_num - 1]->setPosition(Vec2(m_x, m_y));
+            player[player_num - 1]->position_status = 1;
+
+            //缩放
+            player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
+            player[player_num - 1]->setTag(6);                                        //#序数
+            this->addChild(player[player_num - 1]);
+            std::string health = "maxHealth: 200\n";
+            std::string name = "Name:lanbo \n";
+            std::string defense = "Attack: 1.5\n";
+            generateInformation(health, name, defense);
+            break;
+        }
+        case 'g':
+        {
+            player.push_back(ChessHero::create("lienata_stand.png", 7, chess_grade));//#图片、序数
+            player_num++;
+            player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+            player[player_num - 1]->setPosition(Vec2(m_x, m_y));
+            player[player_num - 1]->position_status = 1;
+
+            //缩放
+            player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
+            player[player_num - 1]->setTag(7);                                        //#序数
+            this->addChild(player[player_num - 1]);
+            std::string health = "maxHealth: 200\n";
+            std::string name = "Name:lienata \n";
+            std::string defense = "Attack: 1.5\n";
+            generateInformation(health, name, defense);
+            break;
+        }
+        case'h':
+        {
+            player.push_back(ChessHero::create("niutou_stand.png", 8, chess_grade));//#图片、序数
+            player_num++;
+            player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+            player[player_num - 1]->setPosition(Vec2(m_x, m_y));
+            player[player_num - 1]->position_status = 1;
+
+            //缩放
+            player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
+            player[player_num - 1]->setTag(8);                                        //#序数
+            this->addChild(player[player_num - 1]);
+            std::string health = "maxHealth: 250\n";
+            std::string name = "Name:niutou \n";
+            std::string defense = "Attack: 1.5\n";
+            generateInformation(health, name, defense);
+            break;
+        }
+        case 'i':
+        {
+            player.push_back(ChessHero::create("tienan_stand.png", 9, chess_grade));//#图片、序数
+            player_num++;
+            player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+            player[player_num - 1]->setPosition(Vec2(m_x, m_y));
+            player[player_num - 1]->position_status = 1;
+
+            //缩放
+            player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
+            player[player_num - 1]->setTag(9);                                     //#序数
+            this->addChild(player[player_num - 1]);
+            std::string health = "maxHealth: 200\n";
+            std::string name = "Name:tienan \n";
+            std::string defense = "Attack: 1.5\n";
+            generateInformation(health, name, defense);
+            break;
+        }
+        case 'j':
+        {
+            player.push_back(ChessHero::create("wuqi_stand.png", 10, chess_grade));//#图片、序数
+            player_num++;
+            player[player_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+            player[player_num - 1]->setPosition(Vec2(m_x, m_y));
+            player[player_num - 1]->position_status = 1;
+
+            //缩放
+            player[player_num - 1]->setScale(player[player_num - 1]->m_SpriteTypeValue);
+            player[player_num - 1]->setTag(10);                                    //#序数
+            this->addChild(player[player_num - 1]);
+            std::string health = "maxHealth: 200\n";
+            std::string name = "Name:wuqi \n";
+            std::string defense = "Attack: 1.5\n";
+            generateInformation(health, name, defense);
+            break;
+        }
+
+        }
+        if (chess_type >= 'a' && chess_type <= 'j') {
+            player[player_num - 1]->weapon[0] = weapon1 - '0';
+            player[player_num - 1]->weapon[1] = weapon2 - '0';
+            player[player_num - 1]->weapon[2] = weapon3 - '0';
+            player[player_num - 1]->wear_weapon();
+
+            Size playerSize = player[player_num - 1]->getContentSize();
+            player[player_num - 1]->healthBar->init(getPositionX() - playerSize.width / 3, getPositionY() + playerSize.height / 0.9, player[player_num - 1]->position_status);
+            player[player_num - 1]->healthBar->setScale(0.7f);
+        }
+    }
+
+   
+    //…………………………………………………………………………………等待传递第二个数组………………………………………………………………………………………
+    for (int i = 1; i <= 136; i += 5) {
+        chess_type = tmp2[i], chess_grade = tmp2[i + 1] - '1', weapon1 = tmp2[i + 2] - '0', weapon2 = tmp2[i + 3] - '0', weapon3 = tmp2[i + 4] - '0';
+        m_x = (8 - ((i - 1) / 5) / 7);
+        m_y = (7 - ((i - 1) / 5) % 7);
+            
+        int tmp = m_x;
+        m_x = 400 + m_y * 100;
+        m_y = 365 + tmp * 70;
+
+        switch (chess_type) {
+        case 'a':
+        {
+            enemy.push_back(ChessHero::create("bingnv_attack.png", 1, chess_grade));//#图片、序数
             enemy_num++;
             enemy[enemy_num - 1]->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
             enemy[enemy_num - 1]->setPosition(Vec2(m_x, m_y));
@@ -399,11 +362,7 @@ void Chessboard::ChessHero_create()
             enemy[enemy_num - 1]->setScale(enemy[enemy_num - 1]->m_SpriteTypeValue);
             enemy[enemy_num - 1]->setTag(1);                                        //#序数
             this->addChild(enemy[enemy_num - 1]);
-            enemy[enemy_num - 1]->weapon[0] = weapon1 - '0';
-            enemy[enemy_num - 1]->weapon[1] = weapon2 - '0';
-            enemy[enemy_num - 1]->weapon[2] = weapon3 - '0';
-
-            enemy[enemy_num - 1]->wear_weapon();
+          
             break;
         }
         case 'b':
@@ -418,11 +377,7 @@ void Chessboard::ChessHero_create()
             enemy[enemy_num - 1]->setScale(enemy[enemy_num - 1]->m_SpriteTypeValue);
             enemy[enemy_num - 1]->setTag(2);
             this->addChild(enemy[enemy_num - 1]);
-            enemy[enemy_num - 1]->weapon[0] = weapon1 - '0';
-            enemy[enemy_num - 1]->weapon[1] = weapon2 - '0';
-            enemy[enemy_num - 1]->weapon[2] = weapon3 - '0';
-
-            enemy[enemy_num - 1]->wear_weapon();
+          
             break;
         }
         case 'c':
@@ -437,11 +392,7 @@ void Chessboard::ChessHero_create()
             enemy[enemy_num - 1]->setScale(enemy[enemy_num - 1]->m_SpriteTypeValue);
             enemy[enemy_num - 1]->setTag(3);                                        //#序数
             this->addChild(enemy[enemy_num - 1]);
-            enemy[enemy_num - 1]->weapon[0] = weapon1 - '0';
-            enemy[enemy_num - 1]->weapon[1] = weapon2 - '0';
-            enemy[enemy_num - 1]->weapon[2] = weapon3 - '0';
-
-            enemy[enemy_num - 1]->wear_weapon();
+           
             break;
         }
         case 'd':
@@ -456,11 +407,7 @@ void Chessboard::ChessHero_create()
             enemy[enemy_num - 1]->setScale(enemy[enemy_num - 1]->m_SpriteTypeValue);
             enemy[enemy_num - 1]->setTag(4);                                        //#序数
             this->addChild(enemy[enemy_num - 1]);
-            enemy[enemy_num - 1]->weapon[0] = weapon1 - '0';
-            enemy[enemy_num - 1]->weapon[1] = weapon2 - '0';
-            enemy[enemy_num - 1]->weapon[2] = weapon3 - '0';
-
-            enemy[enemy_num - 1]->wear_weapon();
+           
             break;
         }
         case 'e':
@@ -475,11 +422,7 @@ void Chessboard::ChessHero_create()
             enemy[enemy_num - 1]->setScale(enemy[enemy_num - 1]->m_SpriteTypeValue);
             enemy[enemy_num - 1]->setTag(5);                                        //#序数
             this->addChild(enemy[enemy_num - 1]);
-            enemy[enemy_num - 1]->weapon[0] = weapon1 - '0';
-            enemy[enemy_num - 1]->weapon[1] = weapon2 - '0';
-            enemy[enemy_num - 1]->weapon[2] = weapon3 - '0';
-
-            enemy[enemy_num - 1]->wear_weapon();
+           
             break;
         }
         case 'f':
@@ -494,11 +437,7 @@ void Chessboard::ChessHero_create()
             enemy[enemy_num - 1]->setScale(enemy[enemy_num - 1]->m_SpriteTypeValue);
             enemy[enemy_num - 1]->setTag(6);                                        //#序数
             this->addChild(enemy[enemy_num - 1]);
-            enemy[enemy_num - 1]->weapon[0] = weapon1 - '0';
-            enemy[enemy_num - 1]->weapon[1] = weapon2 - '0';
-            enemy[enemy_num - 1]->weapon[2] = weapon3 - '0';
-
-            enemy[enemy_num - 1]->wear_weapon();
+          
             break;
         }
         case 'g':
@@ -513,11 +452,7 @@ void Chessboard::ChessHero_create()
             enemy[enemy_num - 1]->setScale(enemy[enemy_num - 1]->m_SpriteTypeValue);
             enemy[enemy_num - 1]->setTag(7);                                        //#序数
             this->addChild(enemy[enemy_num - 1]);
-            enemy[enemy_num - 1]->weapon[0] = weapon1 - '0';
-            enemy[enemy_num - 1]->weapon[1] = weapon2 - '0';
-            enemy[enemy_num - 1]->weapon[2] = weapon3 - '0';
-
-            enemy[enemy_num - 1]->wear_weapon();
+          
             break;
         }
         case'h':
@@ -532,11 +467,7 @@ void Chessboard::ChessHero_create()
             enemy[enemy_num - 1]->setScale(enemy[enemy_num - 1]->m_SpriteTypeValue);
             enemy[enemy_num - 1]->setTag(8);                                        //#序数
             this->addChild(enemy[enemy_num - 1]);
-            enemy[enemy_num - 1]->weapon[0] = weapon1 - '0';
-            enemy[enemy_num - 1]->weapon[1] = weapon2 - '0';
-            enemy[enemy_num - 1]->weapon[2] = weapon3 - '0';
-
-            enemy[enemy_num - 1]->wear_weapon();
+           
             break;
         }
         case 'i':
@@ -551,11 +482,7 @@ void Chessboard::ChessHero_create()
             enemy[enemy_num - 1]->setScale(enemy[enemy_num - 1]->m_SpriteTypeValue);
             enemy[enemy_num - 1]->setTag(9);                                     //#序数
             this->addChild(enemy[enemy_num - 1]);
-            enemy[enemy_num - 1]->weapon[0] = weapon1 - '0';
-            enemy[enemy_num - 1]->weapon[1] = weapon2 - '0';
-            enemy[enemy_num - 1]->weapon[2] = weapon3 - '0';
-
-            enemy[enemy_num - 1]->wear_weapon();
+          
             break;
         }
         case 'j':
@@ -570,17 +497,21 @@ void Chessboard::ChessHero_create()
             enemy[enemy_num - 1]->setScale(enemy[enemy_num - 1]->m_SpriteTypeValue);
             enemy[enemy_num - 1]->setTag(10);                                    //#序数
             this->addChild(enemy[enemy_num - 1]);
+           
+            break;
+        }
+        }
+
+        if (chess_type >= 'a' && chess_type <= 'j') {
             enemy[enemy_num - 1]->weapon[0] = weapon1 - '0';
             enemy[enemy_num - 1]->weapon[1] = weapon2 - '0';
             enemy[enemy_num - 1]->weapon[2] = weapon3 - '0';
-
             enemy[enemy_num - 1]->wear_weapon();
-            break;
+
+            Size enemySize = enemy[enemy_num - 1]->getContentSize();
+            enemy[enemy_num - 1]->healthBar->init(getPositionX() , getPositionY() + enemySize.height / 0.8, enemy[enemy_num - 1]->position_status);
+            enemy[enemy_num - 1]->healthBar->setScale(0.7f);
         }
-
-        }
-
-
     }
 }
 
@@ -626,21 +557,7 @@ void  Chessboard::generateValue(float dt) {
 // Modify the update function to include continuous animation
 void Chessboard::update(float dt)
 {
-    //if(remainingTime > 0)
-    //{
-    //    //倒计时部分
-    //    remainingTime -= (1 / 60.0);
-
-    //    //更新倒计时文本
-    //    countdownLabel->setString(StringUtils::format("Countdown: %.0f", remainingTime));
-
-    //    //更新进度条
-    //    float percentage = (remainingTime / attack_time) * 100;
-
-    //    //直接更新进度条的百分比
-    //    countdownTimer->setPercentage(percentage);
-    //}
-    
+  
     //处理用户输入(是不需要担忧的，因为像：买英雄、卖英雄、买装备、装备合成、选择铭文、这样的输入在备战区层实现)，传入这个类的时候使用回调函数就可以
     //1.唯一要实现的是：将装备给正在战斗的英雄
     //……………………update如何处理输入呢？……………………
@@ -658,11 +575,11 @@ void Chessboard::update(float dt)
             live_player++;
         if (player[i - 1]->enemy != nullptr && player[i - 1]->m_HP > 0 && player[i - 1]->enemy->m_HP > 0) {
             if (player[i - 1]->attack_status == 1) {
-                player[i - 1]->enemy->m_HP -= player[i - 1]->m_SpritePowerValue * player[i - 1]->m_SpriteAttackSpeed;//精灵攻击速度;
-                player[i - 1]->enemy->healthBar->decreaseHealth(player[i - 1]->m_SpritePowerValue * player[i - 1]->m_SpriteAttackSpeed/3.5);
+                player[i - 1]->enemy->m_HP -= player[i - 1]->m_SpritePowerValue * player[i - 1]->m_SpriteAttackSpeed / player[i - 1]->enemy->m_defence;//精灵攻击速度;
+                player[i - 1]->enemy->healthBar->decreaseHealth(player[i - 1]->m_SpritePowerValue * player[i - 1]->m_SpriteAttackSpeed / player[i - 1]->enemy->m_defence, player[i - 1]->enemy->position_status);
             }
             if (player[i - 1]->skill_status == 1) {
-                player[i - 1]->enemy->m_HP -= player[i - 1]->skill_injury;//精灵攻击速度;
+                player[i - 1]->enemy->m_HP -= player[i - 1]->skill_injury;//技能;
                 player[i - 1]->skill_status = 0;
             }
         }
@@ -675,11 +592,11 @@ void Chessboard::update(float dt)
             live_enemy++;
         if (enemy[i - 1]->enemy != nullptr && enemy[i - 1]->m_HP > 0 && enemy[i - 1]->enemy->m_HP > 0) {        
             if (enemy[i - 1]->attack_status == 1) {
-                enemy[i - 1]->enemy->m_HP -= enemy[i - 1]->m_SpritePowerValue * enemy[i - 1]->m_SpriteAttackSpeed;//精灵攻击速度;
-                enemy[i - 1]->enemy->healthBar->decreaseHealth(enemy[i - 1]->m_SpritePowerValue * enemy[i - 1]->m_SpriteAttackSpeed/3);
+                enemy[i - 1]->enemy->m_HP -= enemy[i - 1]->m_SpritePowerValue * enemy[i - 1]->m_SpriteAttackSpeed/ enemy[i - 1]->enemy->m_defence;//精灵攻击速度;
+                enemy[i - 1]->enemy->healthBar->decreaseHealth(enemy[i - 1]->m_SpritePowerValue * enemy[i - 1]->m_SpriteAttackSpeed / enemy[i - 1]->enemy->m_defence, enemy[i - 1]->enemy->position_status);
             }
             if (enemy[i - 1]->skill_status == 1) {
-                enemy[i - 1]->enemy->m_HP -= enemy[i - 1]->skill_injury;//精灵攻击速度;
+                enemy[i - 1]->enemy->m_HP -= enemy[i - 1]->skill_injury;//技能伤害;
                 enemy[i - 1]->skill_status = 0;
             }
         }
@@ -689,10 +606,11 @@ void Chessboard::update(float dt)
     //4. 判断这一局对战有没有结束
     if (end_status == 0)
     {
-        if ((live_player == 0 || live_enemy == 0) || remainingTime <= 0)
+        if ((live_player == 0 || live_enemy == 0) && remainingTime <= 0)
         {
 
             if (live_player > 0) { //我们赢了……………………………………………………………………………………………………………………………………退出
+                
                 auto emitter = ParticleSystemQuad::create("Begain.plist");
                 if (emitter) {
                     // 创建批处理节点并使用粒子纹理来初始化
@@ -704,21 +622,19 @@ void Chessboard::update(float dt)
                     addChild(emitter);
                 }
 
-
                 for (int i = 0; i < player_num; i++) {
                     if (player[i] != nullptr && player[i]->m_HP > 0) {
                         Vec2 newChessHeroPosition = Vec2(1536 / 2 - getPositionX(), 1024 / 2 - getPositionY());
                         float moveDuration = 2.0f;
                         auto moveTo = MoveTo::create(moveDuration, newChessHeroPosition);
-                        auto exitLayerAction = CallFunc::create(CC_CALLBACK_0(Chessboard::exitLayer, this));
-                        auto sequence = Sequence::create(moveTo, exitLayerAction, nullptr);
-                        player[i]->runAction(sequence);
+                        player[i]->runAction(moveTo);
                     }
+                    if(i==player_num-1)
+                        end_status = 1;
                 }
-
-                end_status = 1;
             }
             else {//他们赢了
+
                 auto emitter = ParticleSystemQuad::create("Begain.plist");
                 if (emitter) {
                     // 创建批处理节点并使用粒子纹理来初始化
@@ -735,13 +651,11 @@ void Chessboard::update(float dt)
                         Vec2 newChessHeroPosition = Vec2(1536 / 2 - getPositionX(), 1024 / 2 - getPositionY());
                         float moveDuration = 2.0f;
                         auto moveTo = MoveTo::create(moveDuration, newChessHeroPosition);
-                        auto exitLayerAction = CallFunc::create(CC_CALLBACK_0(Chessboard::exitLayer, this));
-                        auto sequence = Sequence::create(moveTo, exitLayerAction, nullptr);
-                        enemy[i]->runAction(sequence);
+                        enemy[i]->runAction(moveTo);
                     }
+                    if (i ==enemy_num - 1)
+                        end_status = 1;
                 }
-
-                end_status = 1;
             }
         }
     }
@@ -759,16 +673,26 @@ void Chessboard::update(float dt)
                 enemy[i]->setVisible(false);
         }
     }
+
+    if (end_status == 1) {
+       exitLayer();
+       end_status = 2;
+    }
 }
 
 void  Chessboard::exitLayer() {
-    //this->unscheduleAllSelectors();  // 可选，取消所有定时器
-    if (Player::getInstance()->healthDown(30))
-        Director::getInstance()->end(); // 替换为你的下一个场景
-    else
-        cocos2d::Director::getInstance()->popScene();
-        //cocos2d::Director::getInstance()->replaceScene();
+    if (Player::getInstance()->healthDown(40)) {
+        Director::getInstance()->end();
+        //Director::getInstance()->replaceScene(TransitionFade::create(1.0, EndScene::scene()));
+    }
+    else {
+        Director::getInstance()->getScheduler()->schedule([=](float dt) {
+            Director::getInstance()->popScene();
+            }, this, 2.0f, 0, 0.0f, false, "popSceneCallback");
+    }
 }
+
+
 
 void Chessboard::generateInformation(std::string& a, std::string& b, std::string& c)
 {
@@ -777,37 +701,41 @@ void Chessboard::generateInformation(std::string& a, std::string& b, std::string
     std::string allInfo = a + b + c;
 
     // 创建标签并设置内容
-    chesshero_label = Label::createWithTTF(allInfo, "fonts/arial.ttf", 24);
-    chesshero_label->setPosition(1350, 600);
-    this->addChild(chesshero_label);
-    chesshero_label->setVisible(false);
-
+    auto label = Label::createWithTTF(allInfo, "fonts/arial.ttf", 24);
+    label->setPosition(1350, 600);
+    this->addChild(label);
+    label->setVisible(false);
+    chesshero_label.push_back(label);
     listener->onMouseMove = [=](Event* event) {
         EventMouse* e = dynamic_cast<EventMouse*>(event);
         if (e) {
             Vec2 mousePos = Vec2(e->getCursorX(), e->getCursorY());
             Vec2 mouseSpritePos = convertToNodeSpace(mousePos);
-            for(int i=0;i<player_num;i++)
+            for (int i = 0; i < player_num; i++)
+            {
+                hideSpriteInfo(i); // 隐藏精灵信息
+            }
+            for (int i = 0; i < player_num; i++)
             {
                 if (player[i]->getBoundingBox().containsPoint(mouseSpritePos)) {
-                    showSpriteInfo();
+                    showSpriteInfo(i);
                 }
                 else {
-                    hideSpriteInfo(); // 隐藏精灵信息
+                    hideSpriteInfo(i); // 隐藏精灵信息
                 }
             }
         }
     };
 }
 
-void Chessboard::hideSpriteInfo()
+void Chessboard::hideSpriteInfo(int i)
 {
-    chesshero_label->setVisible(false);
+    chesshero_label[i]->setVisible(false);
 }
 
-void Chessboard::showSpriteInfo()
+void Chessboard::showSpriteInfo(int i)
 {
-    chesshero_label->setVisible(true);
+    chesshero_label[i]->setVisible(true);
 }
 
 void Chessboard::BattleMatch() {
@@ -866,17 +794,4 @@ void Chessboard::BattleMatch() {
 //进行装备信息的传入与传递
 void Chessboard::MessagePutIn() {
     return;
-}
-
-void Chessboard::menuCloseCallback(Ref* pSender)
-{
-    //Close the cocos2d-x game scene and quit the application
-    Director::getInstance()->end();
-
-    /*To navigate back to native iOS screen(if present) without quitting the application  ,do not use Director::getInstance()->end() as given above,instead trigger a custom event created in RootViewController.mm as below*/
-
-    //EventCustom customEndEvent("game_scene_close_event");
-    //_eventDispatcher->dispatchEvent(&customEndEvent);
-
-
 }

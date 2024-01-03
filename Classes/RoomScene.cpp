@@ -2,6 +2,7 @@
 #include "AIGameScene.h"
 #include "ui/CocosGUI.h"
 #include "Network.h"
+#include "GlobalRes.h"
 
 //创建一个Layer: 这个layer会在现在的背景上显示一个新的背景：还有有创建房间按钮与开始游戏按钮
 // 同时显示当前在线的所有房间（注意可以不断更新，比如当有新的房间被创建时，其他人的显示列表就会变化）
@@ -26,6 +27,7 @@ bool RoomScene::init() {
 
     Network::getInstance();
     // 添加背景
+    GlobalRes::getInstance()->setOnline();
     auto winSize = Director::getInstance()->getVisibleSize();
     auto background = cocos2d::Sprite::create("empty.png");
     background->setScaleX(winSize.width / background->getContentSize().width);
@@ -75,7 +77,11 @@ bool RoomScene::init() {
     RefButton->setPosition(Vec2(300, 800)); 
     RefButton->addClickEventListener(CC_CALLBACK_1(RoomScene::refreshCallback, this));
     this->addChild(RefButton);
-
+    // 启用更新循环
+    //scheduleUpdate();
+    //schedule([this](float delta) {
+    //    this->customUpdate(); // 你的自定义更新逻辑
+    //    }, 1.0f, "custom_update_key");
     return true;
 }
 
@@ -95,7 +101,6 @@ void RoomScene::refreshCallback(cocos2d::Ref* sender) {
     }
     //如果在大厅，返回各个房间的信息
     //例如"3# 1guolinghao##2yg##5chl#"表示共三个房间，各个房间的房主是#...#，房间序号为#后的数字
-
     //如果在房间内，返回房间内的信息  房间号从0开始编码
     //"2#guolinghao##yg#"第一个字符表示房间内有多少人，#..#中间是房间内玩家昵称
     std::string information(Network::getInstance()->refresh());
@@ -104,14 +109,14 @@ void RoomScene::refreshCallback(cocos2d::Ref* sender) {
             num = information[i] - '0';
         }
         if (information[i] == '#'){
+            i++;
             int num = -1;
             if (information[i] >= '0' && information[i] <= '9') {
                 num = information[i] - '0';
                 i++;
             }
             std::string name;
-            i++;
-            for (int j = i + 1; j < information.size()&&information[j] != '#'; j++, i++)
+            for (int j = i; j < information.size()&&information[j] != '#'; j++, i++)
                 name += information[j];
             //创建可点击的标签并设置回调函数
             labelButton.push_back(cocos2d::ui::Button::create("Namebtn_normal.png", "Namebtn_clicked.png", "Namebtn_disabled.png"));
@@ -138,8 +143,6 @@ void  RoomScene::createRoomCallback(cocos2d::Ref* sender) {
 }
 
 void  RoomScene::startGameCallback(cocos2d::Ref* sender) {
-    //如果在房间内，返回房间内的信息
-    //"2#guolinghao##yg#"第一个字符表示房间内有多少人，#..#中间是房间内玩家昵称
     if (isCreateRoom == true) {
         std::string _informationRoom = Network::getInstance()->refresh();
         if (_informationRoom[0] - '0' <= 1)
@@ -163,20 +166,17 @@ void  RoomScene::ConfirmBtnCallback(cocos2d::Ref* sender) {
 
 void RoomScene::LableButtonClickCallback(Ref* sender) {
     // 将参数转换为按钮类型
+    //isjoinRoom = true;
     auto button = dynamic_cast<cocos2d::ui::Button*>(sender);
     //显示已加入，点击其他位置无效
-    if (isjoinRoom == false&&isHomeowner==false&& Network::getInstance()->intoRoom(button->getTag()-10)) {
+    int into = button->getTag() - 10;
+    if (isjoinRoom == false&&isHomeowner==false&& Network::getInstance()->intoRoom(into)) {
         isjoinRoom = true;
         auto visibleSize = Director::getInstance()->getVisibleSize();
         auto joinedLabel = Label::createWithTTF("Join successfully!Waiting for begin!", "fonts/arial.ttf", 24);
         joinedLabel->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * 3 / 4));
         addChild(joinedLabel);
-
-       // Network::getInstance()->wait();
+        Network::getInstance()->wait();
+        Director::getInstance()->replaceScene(AIGameScene::scene());
     }
 }
-
-/*	
-//返回下一局可能对战谁
-	char* getNextEnemy();
- */

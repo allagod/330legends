@@ -4,7 +4,7 @@
 #pragma comment(lib, "ws2_32.lib")
 
 #define MAX_NIKELEN 64
-#define BUFF_LEN 64
+#define BUFF_LEN 256
 #define MAX_NIKELEN 64
 
 class Network
@@ -26,7 +26,7 @@ public:
 	static Network* getInstance();
 
 	//输入昵称后用这个函数把昵称发给服务器
-	void sendNikename(char nikename[]);
+	void sendNikename(const char nikename[]);
 
 	//如果在大厅，返回各个房间的信息
 	//例如"3#1guolinghao##2yg##5chl#"表示共三个房间，各个房间的房主是#...#，房间序号为#后的数字

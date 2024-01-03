@@ -1,17 +1,6 @@
 #include"SettingsScene.h"
 #include"cocos/audio/include/AudioEngine.h"
 
-
-/*知识补充  173页
-   游戏中的音频分为背景音乐（长时间循环播放，占用较大内存，无法同时播放多个）与音效（短的，可以同时播放多个）
-   cocos中提供了Audio引擎
-   支持情况：
-    背景音乐：MP3格式（有损压缩格式）或 WAV（无损压缩格式，文件较大，不适合移动设备） Windows平台
-    音效：WAV格式  Windows平台
-    Audio引擎可以独立于cocos使用，具体使用的API是SimpleAudioEngine //当前版本貌似变成了AudioEngine
-    预处理音乐与音效（解压处理等）可以防止卡顿，游戏运行过程中仅需进行一次，放在加载场景处
- */
-
 Scene* SettingsScene::scene()
 {
     // 'scene' is an autorelease object
@@ -25,7 +14,6 @@ Scene* SettingsScene::scene()
 }
 
 bool SettingsScene::init() {
-
     if (!Layer::init()) {
         return false;
     }
@@ -58,8 +46,6 @@ bool SettingsScene::init() {
     this->addChild(title1);
 
     //添加游戏音效开关设置的按钮
-    /*知识补充：在 MenuItemToggle 中，只有当前选中的按钮会被显示，而其他的按钮则处于隐藏状态。
-    当点击切换按钮时，MenuItemToggle 会自动切换当前显示的按钮，而隐藏其他按钮。*/
     auto musicToggle = MenuItemToggle::createWithCallback(
         CC_CALLBACK_1(SettingsScene::toggleMusic, this),
         MenuItemFont::create("On"), MenuItemFont::create("Off"),
@@ -69,16 +55,6 @@ bool SettingsScene::init() {
         Director::getInstance()->getVisibleSize().height / 2));
 
     //添加音量调节的拖动条
-    /*
-    volumeSlider->loadBarTexture("slider_bar.png");: 设置了滑块的底部条的纹理。这个纹理通常表示整个滑动范围。
-
-    volumeSlider->loadSlidBallTextures("slider_thumb.png", "slider_thumb.png", "");: 设置了滑块上滑块球的纹理。
-    这个方法有三个参数，第一个和第二个参数是表示滑块球的两个纹理，分别是正常状态和按下状态的纹理。第三个参数是禁用状态的纹理，由于你传入的是空字符串 ""，所以在禁用状态下滑块球可能不会有特殊的纹理变化。
-
-    volumeSlider->loadProgressBarTexture("slider_progress.png");: 设置了滑块上进度条的纹理。
-    这个纹理表示滑块球左侧（或上侧，具体取决于滑块的方向）的进度条。
-    */
-    
     auto volumeSlider = ui::Slider::create();
     volumeSlider->loadBarTexture("slider_bar_empty.jpg");//空
     volumeSlider->loadSlidBallTextures("slider_thumb_normal.jpg", "slider_thumb_selected.jpg", "slider_thumb_forbidden.png");//拖动球的状态
@@ -117,19 +93,6 @@ void SettingsScene::toggleMusic(Ref* sender) {
     else// 关闭音效
         AudioEngine::stopAll();
 }
-
-/*void SettingsLayer::onSoundControl(Ref* pSender)
-{
-    bool bSound = GlobalResManager::getInstance()->getSoundFlag();
-    bSound = !bSound;
-    GlobalResManager::getInstance()->setSoundFlag(bSound);
-        if (bSound) {
-            AudioEngine::resumeAll();
-        }
-        else {
-            AudioEngine::pauseAll();
-        }
-}*/
 
 // 音量调节拖动条数值变化时的回调函数
 void SettingsScene::onVolumeChanged(Ref* sender, cocos2d::ui::Slider::EventType type) {

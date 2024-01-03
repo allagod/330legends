@@ -1,6 +1,7 @@
 #include <random>
 #include "Player.h"
 #include "Network.h"
+#include "GlobalRes.h"
 
 Player* Player::getInstance()
 {
@@ -64,14 +65,10 @@ void Player::clearChess(int x, int y)
 void Player::sold(int x, int y)
 {
 	coins += BoardChessIfo[x][y].chessCoins;
-	if (GlobalRes::getInstance()->IsOnline())
-	{
-		Network::getInstance()->cardBack(BoardChessIfo[x][y].type, BoardChessIfo[x][y].level * pow(3, level - 1));
-	}
-	else
-	{
+	//if (GlobalRes::getInstance()->IsOnline())
+	//	Network::getInstance()->cardBack(BoardChessIfo[x][y].type, BoardChessIfo[x][y].level * pow(3, level - 1));
+	//else
 		Market::getInstance()->back(BoardChessIfo[x][y].type, BoardChessIfo[x][y].level * pow(3, level - 1));
-	}
 	if (x != 0)
 		numChess--;
 	clearChess(x, y);
@@ -99,16 +96,16 @@ string Player::marketRefresh()
 	if (buying.size())
 		for (auto i : buying)
 		{
-			if (GlobalRes::getInstance()->IsOnline())
-				Network::getInstance()->cardBack(i, 1);
-			else
+			//if (GlobalRes::getInstance()->IsOnline())
+			//	Network::getInstance()->cardBack(i, 1);
+			//else
 				Market::getInstance()->back(i, 1);
 		}
 	buying.clear();
 	string cards;
-	if (GlobalRes::getInstance()->IsOnline())
-		cards = Network::getInstance()->getCard(level);
-	else
+	//if (GlobalRes::getInstance()->IsOnline())
+	//	cards = Network::getInstance()->getCard(level);
+	//else
 		cards = Market::getInstance()->GetCard(level);
 	for (int i = 0; i < 4; i++)
 		buying.push_back(cards[i]);
@@ -178,6 +175,8 @@ string Player::marketBuy(int x)
 		{
 			returnString += nowx[i] + '0'; returnString += nowy[i] + '0';
 			clearChess(nowx[i], nowy[i]);
+			if (nowx[i] != 0)
+				numChess--;
 		}
 		for (inLocation = 1; inLocation <= MAX_PREPARE; inLocation++)
 			if (BoardChessIfo[0][inLocation].type == NONE_CHESS)
@@ -194,6 +193,8 @@ string Player::marketBuy(int x)
 	{
 		returnString += nowx[i] + '0'; returnString += nowy[i] + '0';
 		clearChess(nowx[i], nowy[i]);
+		if (nowx[i] != 0)
+			numChess--;
 	}
 	for (inLocation = 1; inLocation <= MAX_PREPARE; inLocation++)
 		if (BoardChessIfo[0][inLocation].type == NONE_CHESS)
@@ -255,6 +256,8 @@ string Player::getEquipments()
 	mt19937 gen(rd());
 	// 定义分布范围
 	uniform_int_distribution<> distribution(1, 6);
+
+
 	for (int i = 1; i <= 3; i++)
 	{
 		int nowRandom = distribution(gen);
@@ -272,6 +275,11 @@ void Player::intoNextTurn()
 
 string Player::getEnemyCode()
 {
+	if (GlobalRes::getInstance()->IsOnline())
+	{
+		string s = Network::getInstance()->getFightBoard(Player::getInstance()->getBoardCode().c_str());
+		return s;
+	}
 	string ss[5];
 	for (int i = 0; i < 5; i++)
 		ss[i] += '%';
@@ -292,7 +300,7 @@ string Player::getEnemyCode()
 				ss[0] += "00000";
 				ss[1] += "00000";
 				ss[2] += "d2000";
-				ss[3] += "f1000";
+				ss[3] += "g1000";
 				ss[4] += "00000";
 				continue;
 			}
@@ -300,8 +308,8 @@ string Player::getEnemyCode()
 			{
 				ss[0] += "00000";
 				ss[1] += "00000";
-				ss[2] += "b1000";
-				ss[3] += "a2000";
+				ss[2] += "c1000";
+				ss[3] += "f2000";
 				ss[4] += "00000";
 				continue;
 			}
@@ -329,17 +337,18 @@ string Player::getEnemyCode()
 			ss[3] += "00000";
 			ss[4] += "00000";
 		}
-	std::random_device rd;
+	//std::random_device rd;
 
-	// 使用 Mersenne Twister 引擎
-	std::mt19937 gen(rd());
+	//// 使用 Mersenne Twister 引擎
+	//std::mt19937 gen(rd());
 
-	// 定义分布范围
-	std::uniform_int_distribution<> distribution(0, 4);
+	//// 定义分布范围
+	//std::uniform_int_distribution<> distribution(0, 4);
 
-	// 生成随机数
-	int random_number = distribution(gen);
+	//// 生成随机数
+	//int random_number = distribution(gen);
 
+	int random_number = rand() % 5;
 
 	return ss[random_number];
 }
