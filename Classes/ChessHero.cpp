@@ -32,7 +32,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
         case -1:
             m_SpriteAttackSpeed = 0.4f;//魔法怪物攻击速度（有小bug，数值增加以后伤害增加，攻击速度减小）
 
-            m_HP = 400;//魔法怪物血量
+            m_HP = 150;//魔法怪物血量
 
             m_SpritePowerValue =2.0;//魔法怪物攻击力大小           
 
@@ -45,7 +45,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_SpriteTypeValue = 0.3f;//魔法小怪大小数值
 
-            m_grade = 0;//等级
+            m_defence=1;//等级
 
             attack_status = 0;//攻击状态
 
@@ -59,28 +59,28 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
             break;
 
         case 1:
-            m_SpriteAttackSpeed=0.1f;//冰女攻击速度
+            m_SpriteAttackSpeed = 0.1f;//冰女攻击速度
 
-            m_AttackRange=1300;//冰女攻击范围
+            m_AttackRange = 1300;//冰女攻击范围
 
-            m_HP=600;//冰女血量
+            m_HP = 200;//冰女血量
 
-            m_MP=10;//冰女蓝条
+            m_MP = 10;//冰女蓝条
 
             m_grade = 1;//初始状态是1星
 
-            m_SpriteTypeValue=1.0f;//冰女大小数值
+            m_SpriteTypeValue = 1.0f;//冰女大小数值
 
-            m_SpritePowerValue=2;//冰女攻击力大小
+            m_SpritePowerValue = 1;//冰女攻击力大小
 
             firing_range = 1.1;
 
             m_action_num = 10;
             m_action_num_down = 10;
-         
+
             animation_end = 0;
 
-            m_grade = 0;
+            m_defence=1;
 
             attack_status = 0;
 
@@ -97,7 +97,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_AttackRange = 130;//波比攻击范围
 
-            m_HP = 900;//波比血量
+            m_HP = 250;//波比血量
 
             m_MP = 10;//波比蓝条
 
@@ -105,16 +105,16 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_SpriteTypeValue = 1.0f;//波比大小数值
 
-            m_SpritePowerValue = 2;//波比攻击力大小
+            m_SpritePowerValue = 1.5;//波比攻击力大小
 
             firing_range = 1.1;
 
             m_action_num = 12;
-            m_action_num_down = 12;
+            m_action_num_down = 2;
 
             animation_end = 0;
 
-            m_grade = 0;
+            m_defence=1;
 
             attack_status = 0;
 
@@ -130,7 +130,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_AttackRange = 130;//攻击范围
 
-            m_HP = 700;//血量
+            m_HP = 200;//血量
 
             m_MP = 10;//蓝条
 
@@ -138,7 +138,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_SpriteTypeValue = 1.2f;//大小数值
 
-            m_SpritePowerValue = 2;//攻击力大小
+            m_SpritePowerValue = 1.5;//攻击力大小
 
             firing_range = 1.1;
 
@@ -147,7 +147,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             animation_end = 0;
 
-            m_grade = 0;
+            m_defence=1;
 
             attack_status = 0;
 
@@ -163,7 +163,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_AttackRange = 830;//攻击范围
 
-            m_HP = 600;//血量
+            m_HP = 200;//血量
 
             m_MP = 10;//蓝条
 
@@ -171,7 +171,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_SpriteTypeValue = 1.0f;//大小数值
 
-            m_SpritePowerValue = 2;//攻击力大小
+            m_SpritePowerValue = 1.5;//攻击力大小
 
             firing_range = 1.1;
 
@@ -180,7 +180,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             animation_end = 0;
 
-            m_grade = 0;
+            m_defence=1;
 
             attack_status = 0;
 
@@ -196,7 +196,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_AttackRange = 830;//攻击范围
 
-            m_HP = 600;//血量
+            m_HP = 200;//血量
 
             m_MP = 10;//蓝条
 
@@ -204,7 +204,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_SpriteTypeValue = 1.3f;//大小数值
 
-            m_SpritePowerValue = 2;//攻击力大小
+            m_SpritePowerValue = 1.5;//攻击力大小
 
             firing_range = 0.9;
 
@@ -213,7 +213,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             animation_end = 0;
 
-            m_grade = 0;
+            m_defence=1;
 
             attack_status = 0;
 
@@ -229,7 +229,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_AttackRange = 130;//攻击范围
 
-            m_HP = 800;//血量
+            m_HP = 200;//血量
 
             m_MP = 10;//蓝条
 
@@ -237,7 +237,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_SpriteTypeValue = 1.0f;//大小数值
 
-            m_SpritePowerValue = 2;//攻击力大小
+            m_SpritePowerValue = 1.5;//攻击力大小
 
             firing_range = 1.1;
 
@@ -246,7 +246,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             animation_end = 0;
 
-            m_grade = 0;
+            m_defence=1;
 
             attack_status = 0;
 
@@ -262,7 +262,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_AttackRange = 830;//攻击范围
 
-            m_HP = 600;//血量
+            m_HP = 200;//血量
 
             m_MP = 10;//蓝条
 
@@ -270,7 +270,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_SpriteTypeValue = 1.0f;//大小数值
 
-            m_SpritePowerValue = 2;//攻击力大小
+            m_SpritePowerValue = 1.5;//攻击力大小
 
             firing_range = 1.1;
 
@@ -279,7 +279,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             animation_end = 0;
 
-            m_grade = 0;
+            m_defence=1;
 
             attack_status = 0;
 
@@ -295,7 +295,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_AttackRange = 130;//攻击范围
 
-            m_HP = 900;//血量
+            m_HP = 250;//血量
 
             m_MP = 10;//蓝条
 
@@ -303,7 +303,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_SpriteTypeValue = 0.9f;//大小数值
 
-            m_SpritePowerValue = 2;//攻击力大小
+            m_SpritePowerValue = 1.5;//攻击力大小
 
             firing_range = 1.1;
 
@@ -312,7 +312,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             animation_end = 0;
 
-            m_grade = 0;
+            m_defence=1;
 
             attack_status = 0;
 
@@ -328,7 +328,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_AttackRange = 130;//攻击范围
 
-            m_HP = 800;//血量
+            m_HP = 200;//血量
 
             m_MP = 10;//蓝条
 
@@ -336,7 +336,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_SpriteTypeValue = 0.9f;//大小数值
 
-            m_SpritePowerValue = 2;//攻击力大小
+            m_SpritePowerValue = 1.5;//攻击力大小
 
             firing_range = 1.1;
 
@@ -345,7 +345,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             animation_end = 0;
 
-            m_grade = 0;
+            m_defence=1;
 
             attack_status = 0;
 
@@ -361,7 +361,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_AttackRange = 130;//攻击范围
 
-            m_HP = 800;//血量
+            m_HP = 200;//血量
 
             m_MP = 10;//蓝条
 
@@ -369,7 +369,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             m_SpriteTypeValue = 1.0f;//大小数值
 
-            m_SpritePowerValue = 2;//波比攻击力大小
+            m_SpritePowerValue = 1.5;//攻击力大小
 
             firing_range = 1.1;
 
@@ -378,7 +378,7 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             animation_end = 0;
 
-            m_grade = 0;
+            m_defence=1;
 
             attack_status = 0;
 
@@ -388,15 +388,15 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
             health_bar_y = 0.9;
             break;
-    }
-   
-    Size playerSize = getContentSize();
-    healthBar = new HealthBar(100+50*(int(m_HP/300)));
-    healthBar->init(getPositionX() - playerSize.width / health_bar_x, getPositionY() + playerSize.height / health_bar_y);
-    healthBar->setScale(health_bar_scale);
-    this->addChild(healthBar);
 
+
+    }
     ChessHero_upgrade(upgrade);
+
+    
+    healthBar = new HealthBar(m_HP);
+    this->addChild(healthBar);
+   
 
     this->schedule([this](float dt) {
         this->update(dt);
@@ -404,22 +404,16 @@ bool ChessHero::init(const std::string& filename,const int &k,const int &upgrade
 
     /////////////////////////////
     // 2.
-    //棋子英雄的行为，每两秒更新一次，自己是移动还是攻击
+    //棋子英雄的行为，自己是移动还是攻击
     this->schedule(CC_SCHEDULE_SELECTOR(ChessHero::attack1), m_SpriteAttackSpeed* m_action_num, CC_REPEAT_FOREVER, 0);
     this->schedule(CC_SCHEDULE_SELECTOR(ChessHero::attack2), m_SpriteAttackSpeed* m_action_num_down, CC_REPEAT_FOREVER, 0);
     this->schedule(CC_SCHEDULE_SELECTOR(ChessHero::destroy), 2.0f, CC_REPEAT_FOREVER, 0);
 
-    //this->schedule(CC_SCHEDULE_SELECTOR(ChessHero::skill_make1), 10.0f, CC_REPEAT_FOREVER, 0);
-    //this->schedule(CC_SCHEDULE_SELECTOR(ChessHero::skill_make2), 4.0f, CC_REPEAT_FOREVER, 0);
-    //this->schedule(CC_SCHEDULE_SELECTOR(ChessHero::skill_make3), 2.0f, CC_REPEAT_FOREVER, 0);
+    this->schedule(CC_SCHEDULE_SELECTOR(ChessHero::skill_make1), 5.0f, CC_REPEAT_FOREVER, 0);
+    this->schedule(CC_SCHEDULE_SELECTOR(ChessHero::skill_make2), 5.0f, CC_REPEAT_FOREVER, 0);
+    this->schedule(CC_SCHEDULE_SELECTOR(ChessHero::skill_make3), 8.0f, CC_REPEAT_FOREVER, 0);
    
     return true;
-}
-
-
-
-void ChessHero::wear_weapon() {
-
 }
 
 void ChessHero::skill_make1(float dt) {
@@ -476,7 +470,7 @@ void ChessHero::skill_make3(float dt) {
             emitter->setPosition(1.2 * (enemy->getPosition() - getPosition()));
 
             // 将粒子系统添加到批处理节点中
-          
+            emitter->setScale(0.1);
             emitter->setDuration(1.0f);
 
             // 将批处理节点添加到您的场景或其他节点中
@@ -489,17 +483,17 @@ void ChessHero::skill_make3(float dt) {
 
 //k代表是进步了几级
 void ChessHero::ChessHero_upgrade(const int &k) {
-    
-    m_HP+=300*k;//血量
+    if (m_grade <= 3) {
+        for (int i = 1; i <= k; i++){
+            m_SpriteTypeValue *= 1.5;//精灵大小数值
+        }
 
-    for(int i=1;i<=k;i++)
-    {
-        m_SpriteTypeValue *= 1.5;//精灵大小数值
+        m_SpritePowerValue += 0.5 * k;//精灵攻击力大小
+
+        m_defence += k;
+
+        m_grade += k;//星级
     }
-
-    m_SpritePowerValue+=0.4*k;//精灵攻击力大小
-
-    m_grade+=k;//星级
 }
 
 
@@ -723,11 +717,11 @@ void ChessHero::makeAttack()
 
     
     attack_status = 1;
+    lock1.lock();
 
     if(getTag() == -1)
     {
         //攻击时，本体动作部分
-        
         auto audioID = AudioEngine::play2d("gongji.m4a", false);
         AudioEngine::setVolume(audioID, 0.5);
         auto frames = getAnimation("magic_monster%d.png", m_action_num);
@@ -871,7 +865,7 @@ void ChessHero::makeAttack()
         auto repeatSequence = Repeat::create(sequence, 1);
         this->runAction(repeatSequence);
     }
-    
+    lock1.unlock();
 }
 
 void ChessHero::fireProjectile()
@@ -1142,3 +1136,6 @@ Vector<SpriteFrame*> ChessHero::getAnimation(const char* format, int count)
     return animFrames;
 }
 
+void ChessHero::wear_weapon() {
+
+}

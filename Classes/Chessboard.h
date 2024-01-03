@@ -10,7 +10,7 @@ class Chessboard : public cocos2d::Layer
 public:
     static cocos2d::Scene* createScene();
 
-    virtual bool init();
+    bool init();
 
     void update(float dt);
 
@@ -18,47 +18,53 @@ public:
     //棋子的输入，敌人的输入
     void MessagePutIn();
 
-    // a selector callback
-    void menuCloseCallback(cocos2d::Ref* pSender);
-
+    //用于接受服务器创造战斗棋子的信息
     void ChessHero_create();
 
+    //用于展示棋子战斗过程中暴击伤害的数值
     void generateValue(float dt);
 
+    //在战斗中触摸后提供棋子的信息
     void generateInformation(std::string& a, std::string& b, std::string& c);
 
-    void hideSpriteInfo();
+    //信息菜单的隐藏
+    void hideSpriteInfo(int i);
 
-    void showSpriteInfo();
+    //信息菜单的显示
+    void showSpriteInfo(int i);
 
-    void exitLayer();
+    //切换战斗层与备战层的接口
+    void  exitLayer();
+
+    //开始倒计时
+    void startCountdown(float duration);
+
+    //每秒更新倒计时
+    void updateCountdown(float dt);
+
+    //为战斗层上每一个棋子分配敌人
+    void BattleMatch();
+
     // implement the "static create()" method manually
     CREATE_FUNC(Chessboard);
 
 private:
-    float remainingTime;
-    cocos2d::Label* countdownLabel;
-    cocos2d::Label* chesshero_label;
-    cocos2d::ProgressTimer* countdownTimer;
-    float attack_time = 0;
-    bool end_status=0;
-    std::vector<ChessHero*> player;
-    std::vector<ChessHero*> enemy;
-    int player_num=0;//我方棋盘英雄人数
-    int enemy_num=0;//敌方棋盘英雄人数
-    int chess_hash[10];//这是用于指定棋子身份的数组，要不然棋子只能通过图片来分辨，但其实，棋子也应当有一个标志比如说  settag
+    std::vector<ChessHero*> player;//战斗层上我方棋子英雄数组
 
-    void BattleMatch();
+    std::vector<ChessHero*> enemy;//战斗层上敌方棋子英雄数组
 
-    float animationSpeed = 0.1f;
+    int player_num = 0;//我方棋盘英雄人数
+    int enemy_num = 0;//敌方棋盘英雄人数
 
-    int small_targetDistance = 30;
-    float small_movementSpeed =0.2f;
-    int medium_targetDistance = 100;
-    float medium_movementSpeed = 0.5f;
-    int large_targetDistance = 250;
-    float large_movementSpeed = 0.4f;
-   
+    bool end_status = 0;//战斗层终止、切换标志
+
+    float remainingTime = 30.0;//战斗页面倒计时计时器
+
+    cocos2d::Label* countdownLabel;//倒计时菜单
+
+    std::vector<cocos2d::Label*> chesshero_label;//棋子英雄的信息菜单
+
+    cocos2d::ProgressTimer* countdownTimer;//倒计时器
 };
 
 #endif // __HELLOWORLD_SCENE_H__
