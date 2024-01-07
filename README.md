@@ -23,3 +23,4 @@
 13.界面精美              
 14.使用了较多c++特性，例如jthread            
 15.项目已移植至Android Studio           
+cantact us 457630296@qq.com
